@@ -1,4 +1,3 @@
-
 const foods = [
   // ---------- MINUMAN ----------
   { id: 1, nama: "Caffè Americano", jenis: "minuman", kategori: "Hot Coffees", ukuran: "Tall", harga: 0,

@@ -1,4 +1,3 @@
-
 const ingredients = [
   // ---------- MINUMAN ----------
   { menuId: 1,  bahan: ["Espresso", "Air panas"] },
