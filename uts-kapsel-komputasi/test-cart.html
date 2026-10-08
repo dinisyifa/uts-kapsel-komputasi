@@ -7,7 +7,20 @@
   <body>
     <h1>Tes Cart</h1>
 
+    <div id="cart-empty">Keranjang masih kosong.</div>
+
+    <div id="cart-content">
+      <table border="1">
+        <thead>
+          <tr><th>Menu</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr>
+        </thead>
+        <tbody id="cart-body"></tbody>
+      </table>
+      <p>Total: <b id="total-harga">Rp 0</b></p>
+    </div>
+
     <script src="data/food.json"></script>
     <script src="js/cart.js"></script>
   </body>
 </html>
+

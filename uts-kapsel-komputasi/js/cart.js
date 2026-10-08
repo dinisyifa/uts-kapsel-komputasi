@@ -41,6 +41,7 @@ function ubahQty(id,perubahan) {
     // Buang item yang qty-nya sudah 0
     const cartBaru = cart.filter((item) => item.qty > 0);
     simpanCart(cartBaru);
+    renderCart();
 }
 
 
@@ -49,11 +50,13 @@ function hapusItem(id) {
     const cart = ambilCart();
     const cartBaru = cart.filter((item) => item.id !== id);
     simpanCart(cartBaru);
+    renderCart();
 }
 
 //Tombol Kosongkan
 function kosongkanCart() {
     simpanCart([]);
+    renderCart();
 }
 
 // Format uang menjadi rupiah
@@ -70,3 +73,51 @@ function hitungTotal(cart) {
     }
     return total;
 }
+
+// Tampilkan isi keranjang di tabel
+function renderCart() {
+    const cartBody = document.getElementById("cart-body");
+    if (!cartBody) return; // halaman ini tidak mempunyai tabel keranjang
+
+    const cart = ambilCart();
+    const cartEmpty = document.getElementById("cart-empty");
+    const cartContent = document.getElementById("cart-content");
+
+    // Keranjang kosong: tampilkan pesan, dan sembunyikan tabel
+    if (cart.length === 0) {
+        cartEmpty.style.display = "block";
+        cartContent.style.display = "none";
+        return;
+    }
+    cartEmpty.style.display = "none";
+    cartContent.style.display = "block";
+
+    // satu baris tabel untuk tiap item
+    const output = [];
+    cart.forEach((item)=> {
+        const food = foods.find((f) => f.id === item.id);
+        const subtotal = food.harga * item.qty;
+        output.push(
+            `<tr>
+                <td>${food.nama}</td>
+                <td>${formatRupiah(food.harga)}</td>
+                <td>
+                    <button class="qty-btn" onclick="ubahQty(${food.id}, -1)">-</button>
+                    ${item.qty}
+                    <button class="qty-btn" onclick="ubahQty(${food.id}, 1)">+</button>
+                </td>
+                <td>${formatRupiah(subtotal)}</td>
+                <td><button class="hapus-btn" onclick="hapusItem(${food.id})">Hapus</button></td>
+            </tr>`
+        );
+    });
+    cartBody.innerHTML = output.join("");
+
+    document.getElementById("total-harga").innerHTML = formatRupiah(hitungTotal(cart));
+
+    //Ringkasan gizi
+    if (typeof renderNutrisiCart === "function") {
+        renderNutrisiCart(cart);
+    }
+ }
+renderCart()
