@@ -1,0 +1,102 @@
+/*CART*/
+
+/* Angka di ikon keranjang */
+#cart-count {
+  background: var(--hijau, #2f9e44);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Tabel keranjang */
+#cart-content table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+#cart-content th {
+  background: var(--hijau, #2f9e44);
+  color: white;
+  text-align: left;
+  padding: 10px;
+}
+#cart-content td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Tombol + dan − */
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--hijau, #2f9e44);
+  border-radius: 50%;
+  background: white;
+  color: var(--hijau, #2f9e44);
+  cursor: pointer;
+}
+.qty-btn:hover {
+  background: var(--hijau, #2f9e44);
+  color: white;
+}
+
+/* Tombol Hapus */
+.hapus-btn {
+  border: none;
+  background: none;
+  color: #e03131;
+  cursor: pointer;
+}
+
+/* Total harga */
+#total-harga {
+  color: var(--hijau, #2f9e44);
+  font-size: 20px;
+}
+
+/* Form pemesanan */
+#order-form {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+#order-form input,
+#order-form select,
+#order-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+#order-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--hijau, #2f9e44);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Pesan sukses */
+#order-success h3 {
+  color: var(--hijau, #2f9e44);
+}
+
+/* Notifikasi toast */
+#toast {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
