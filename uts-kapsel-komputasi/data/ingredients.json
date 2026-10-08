@@ -11,3 +11,15 @@ const ingredients = [
   { menuId: 9, bahan: ["Tahu", "Ati ayam", "Bawang putih", "Jahe", "Saus sambal", "Kecap Inggris", "Saus tiram", "Merica", "Bubuk cabai", "Daun bawang", "Minyak goreng"] },
   { menuId: 10, bahan: ["Ikan kakap putih", "Bawang merah", "Bawang putih", "Kunyit", "Tomat", "Belimbing wuluh", "Cabai merah", "Cabai rawit", "Lengkuas", "Serai", "Daun salam", "Daun jeruk"] }
 ];
+
+  // ---------- MINUMAN ----------
+  { menuId: 11, bahan: ["Espresso", "Air panas"] },
+  { menuId: 12, bahan: ["Kopi seduh blonde roast"] },
+  { menuId: 13, bahan: ["Espresso", "Susu steamed", "Busa susu tebal"] },
+  { menuId: 14, bahan: ["Espresso", "Susu steamed", "Sirup vanila", "Saus karamel"] },
+  { menuId: 15, bahan: ["Espresso", "Susu steamed", "Saus mocha", "Sirup toffee nut", "Whipped cream", "Taburan garam karamel"] },
+  { menuId: 16, bahan: ["Teh Earl Grey", "Susu steamed", "Sirup vanila"] },
+  { menuId: 17, bahan: ["Teh English Breakfast", "Susu steamed", "Gula cair"] },
+  { menuId: 18, bahan: ["Bubuk matcha", "Susu steamed"] },
+  { menuId: 19, bahan: ["Saus mocha", "Sirup toffee nut", "Susu steamed", "Whipped cream", "Taburan garam karamel"] },
+  { menuId: 20, bahan: ["Saus mocha", "Sirup vanila", "Susu steamed", "Whipped cream"] }
