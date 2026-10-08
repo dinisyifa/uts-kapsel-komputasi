@@ -28,6 +28,9 @@ function tambahKeCart(id) {
     }
 
     simpanCart(cart);
+    renderCart();
+    const food = foods.find((f) => f.id === id);
+    tampilkanToast(food.nama + " masuk keranjang");
 }
 
 //Tombol + (perubahan=1) & tombol - (perubahan= -1)
@@ -74,8 +77,33 @@ function hitungTotal(cart) {
     return total;
 }
 
+// Angka di ikon keranjang = total semua qty
+function updateCartCount() {
+    const badge = document.getElementById("cart-count");
+    if (!badge) return; //halaman ini gaada ikon keranjang
+
+    const cart = ambilCart();
+    let jumlah = 0;
+    for (let i = 0; i < cart.length; i++) {
+        jumlah = jumlah + cart[i].qty;
+    }
+    badge.innerHTML = jumlah;
+}
+
+//Notif kecil, bakal ilang setelah 2 detik
+function tampilkanToast(pesan) {
+    const toast = document.getElementById("toast");
+    if (!toast) return;
+
+    toast.innerHTML = pesan;
+    toast.style.display = "block";
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 2000);
+}
 // Tampilkan isi keranjang di tabel
 function renderCart() {
+    updateCartCount();
     const cartBody = document.getElementById("cart-body");
     if (!cartBody) return; // halaman ini tidak mempunyai tabel keranjang
 
