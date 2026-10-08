@@ -1,0 +1,26 @@
+
+const ingredients = [
+  // ---------- MINUMAN ----------
+  { menuId: 1,  bahan: ["Espresso", "Air panas"] },
+  { menuId: 2,  bahan: ["Kopi seduh blonde roast"] },
+  { menuId: 3,  bahan: ["Espresso", "Susu steamed", "Busa susu tebal"] },
+  { menuId: 4,  bahan: ["Espresso", "Susu steamed", "Sirup vanila", "Saus karamel"] },
+  { menuId: 5,  bahan: ["Espresso", "Susu steamed", "Saus mocha", "Sirup toffee nut", "Whipped cream", "Taburan garam karamel"] },
+  { menuId: 6,  bahan: ["Teh Earl Grey", "Susu steamed", "Sirup vanila"] },
+  { menuId: 7,  bahan: ["Teh English Breakfast", "Susu steamed", "Gula cair"] },
+  { menuId: 8,  bahan: ["Bubuk matcha", "Susu steamed"] },
+  { menuId: 9,  bahan: ["Saus mocha", "Sirup toffee nut", "Susu steamed", "Whipped cream", "Taburan garam karamel"] },
+  { menuId: 10, bahan: ["Saus mocha", "Sirup vanila", "Susu steamed", "Whipped cream"] },
+
+  // ---------- MAKANAN ----------
+  { menuId: 11, bahan: ["Roti burger", "Patty daging sapi", "Keju", "Acar", "Bawang", "Saus tomat", "Mustard"] },
+  { menuId: 12, bahan: ["Roti", "Fillet ayam goreng tepung", "Selada", "Mayones"] },
+  { menuId: 13, bahan: ["Fillet ayam", "Tepung buttermilk", "Minyak goreng"] },
+  { menuId: 14, bahan: ["Fillet ayam", "Tepung", "Saus madu BBQ pedas", "Minyak goreng"] },
+  { menuId: 15, bahan: ["Ayam panggang", "Selada campur", "Edamame", "Wortel", "Kacang almond", "Jeruk mandarin"] },
+  { menuId: 16, bahan: ["Ayam panggang", "Selada campur", "Bacon", "Keju", "Tomat", "Saus ranch"] },
+  { menuId: 17, bahan: ["Ayam panggang", "Selada campur", "Kacang hitam", "Jagung", "Tomat", "Keju", "Tortilla strip"] },
+  { menuId: 18, bahan: ["Daging ayam", "Tepung roti", "Minyak goreng"] },
+  { menuId: 19, bahan: ["Roti", "Salad ayam", "Selada", "Tomat", "Mayones"] },
+  { menuId: 20, bahan: ["Sosis", "Adonan tepung jagung", "Minyak goreng"] }
+];
