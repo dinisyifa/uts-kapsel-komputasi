@@ -6,50 +6,65 @@
     <style>
       body { font-family: Arial, sans-serif; padding: 20px; }
       table { border-collapse: collapse; font-size: 14px; }
-      th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+      th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; vertical-align: top; }
       th { background: #2f9e44; color: white; }
-      .kosong { background: #ffe3e3; }
+      #error { color: #e03131; font-weight: bold; }
     </style>
   </head>
   <body>
     <h1>Cek Dataset NutriCafe</h1>
+    <p id="error"></p>
     <p id="info"></p>
     <table>
-      <thead id="tabel-head"></thead>
+      <thead>
+        <tr>
+          <th>id</th><th>Nama</th><th>Kategori</th><th>Deskripsi</th><th>Porsi</th>
+          <th>Kalori</th><th>Protein (g)</th><th>Lemak (g)</th><th>Karbo (g)</th><th>Bahan</th>
+        </tr>
+      </thead>
       <tbody id="tabel-body"></tbody>
     </table>
 
+    <script>
+      window.onerror = function (pesan, file, baris) {
+        document.getElementById("error").innerHTML += `ERROR: ${pesan} (${file} baris ${baris})<br>`;
+      };
+    </script>
     <script src="data/food.json"></script>
     <script src="data/ingredients.json"></script>
     <script>
-        const kolom = ["id", "jenis", "nama", "kategori", "ukuran", "harga", "kalori",
-                     "lemak", "kolesterol", "sodium", "karbo", "serat", "gula", "protein", "kafein", "bahan"];
-
-      // header tabel
-      const head = [];
-      kolom.forEach((k) => head.push(`<th>${k}</th>`));
-      document.getElementById("tabel-head").innerHTML = `<tr>${head.join("")}</tr>`;
-
-      // isi tabel (pola buildQuiz minggu 2)
       const rows = [];
-      let belumDiisi = 0;
+      let makanan = 0;
+      let minuman = 0;
+
       foods.forEach((food) => {
-        const dataBahan = ingredients.find((i) => i.menuId === food.id);
-        const kosong = food.nama === "";
-        if (kosong) belumDiisi++;
-
-        const sel = [];
-        kolom.forEach((k) => {
-          const nilai = k === "bahan" ? (dataBahan ? dataBahan.bahan.join(", ") : "-") : food[k];
-          sel.push(`<td>${nilai}</td>`);
+        // cari bahan dengan menuId yang sama
+        let bahan = [];
+        ingredients.forEach((item) => {
+          if (item.menuId === food.id) bahan = item.bahan;
         });
-        rows.push(`<tr class="${kosong ? "kosong" : ""}">${sel.join("")}</tr>`);
-      });
-      document.getElementById("tabel-body").innerHTML = rows.join("");
 
+        if (food.kategori === "Makanan") makanan++;
+        if (food.kategori === "Minuman") minuman++;
+
+        rows.push(`
+          <tr>
+            <td>${food.id}</td>
+            <td>${food.nama}</td>
+            <td>${food.kategori}</td>
+            <td>${food.deskripsi}</td>
+            <td>${food.porsi}</td>
+            <td>${food.nutrisi.kalori}</td>
+            <td>${food.nutrisi.protein}</td>
+            <td>${food.nutrisi.lemak}</td>
+            <td>${food.nutrisi.karbohidrat}</td>
+            <td>${bahan.join(", ")}</td>
+          </tr>`);
+      });
+
+      document.getElementById("tabel-body").innerHTML = rows.join("");
       document.getElementById("info").innerHTML =
-        `Total ${foods.length} menu · ${belumDiisi} belum diisi (baris merah)`;
-      console.table(foods);
+        `Total ${foods.length} menu · ${makanan} makanan · ${minuman} minuman`;
     </script>
   </body>
 </html>

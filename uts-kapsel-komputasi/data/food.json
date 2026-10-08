@@ -80,4 +80,86 @@ const foods = [
     porsi: 1,
     nutrisi: { kalori: 66.35, protein: 2.32, lemak: 1.13, karbohidrat: 12.48 }
   }
-];
+
+  // ---------- MINUMAN (Starbucks, ukuran Tall) ----------
+  {
+    id: 11,
+    nama: "Caffè Americano",
+    kategori: "Minuman",
+    deskripsi: "Espresso yang dilarutkan dengan air panas, menghasilkan kopi hitam ringan tanpa susu dan gula. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 10, protein: 1, lemak: 0, karbohidrat: 1 }
+  },
+  {
+    id: 12,
+    nama: "Blonde Roast",
+    kategori: "Minuman",
+    deskripsi: "Kopi seduh dari biji sangrai ringan dengan rasa lembut dan kafein tinggi. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 5, protein: 0, lemak: 0, karbohidrat: 0 }
+  },
+  {
+    id: 13,
+    nama: "Cappuccino",
+    kategori: "Minuman",
+    deskripsi: "Espresso dengan susu steamed dan lapisan busa susu tebal. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 90, protein: 6, lemak: 3.5, karbohidrat: 9 }
+  },
+  {
+    id: 14,
+    nama: "Caramel Macchiato",
+    kategori: "Minuman",
+    deskripsi: "Susu steamed dengan sirup vanila, espresso, dan saus karamel di atasnya. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 190, protein: 8, lemak: 6, karbohidrat: 26 }
+  },
+  {
+    id: 15,
+    nama: "Salted Caramel Mocha",
+    kategori: "Minuman",
+    deskripsi: "Espresso, saus mocha, dan sirup toffee nut dengan whipped cream dan taburan garam karamel. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 370, protein: 10, lemak: 14, karbohidrat: 53 }
+  },
+  {
+    id: 16,
+    nama: "London Fog Tea Latte",
+    kategori: "Minuman",
+    deskripsi: "Teh Earl Grey dengan susu steamed dan sirup vanila. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 140, protein: 5, lemak: 3, karbohidrat: 22 }
+  },
+  {
+    id: 17,
+    nama: "Royal English Breakfast Tea Latte",
+    kategori: "Minuman",
+    deskripsi: "Teh hitam English Breakfast dengan susu steamed dan sedikit gula cair. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 110, protein: 5, lemak: 3, karbohidrat: 16 }
+  },
+  {
+    id: 18,
+    nama: "Matcha Green Tea Latte",
+    kategori: "Minuman",
+    deskripsi: "Bubuk teh hijau matcha yang dipadukan dengan susu steamed. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 190, protein: 10, lemak: 5, karbohidrat: 25 }
+  },
+  {
+    id: 19,
+    nama: "Salted Caramel Hot Chocolate",
+    kategori: "Minuman",
+    deskripsi: "Cokelat panas dengan sirup toffee nut, whipped cream, dan taburan garam karamel. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 350, protein: 9, lemak: 13, karbohidrat: 50 }
+  },
+  {
+    id: 20,
+    nama: "Hot Chocolate",
+    kategori: "Minuman",
+    deskripsi: "Saus mocha dan sirup vanila dengan susu steamed dan whipped cream. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 270, protein: 10, lemak: 12, karbohidrat: 32 }
+  }
+  ];
