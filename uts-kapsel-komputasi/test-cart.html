@@ -17,7 +17,21 @@
         <tbody id="cart-body"></tbody>
       </table>
       <p>Total: <b id="total-harga">Rp 0</b></p>
+        <form id="order-form" onsubmit="submitOrder(event)">
+            <p>Nama: <input id="nama" maxlength="40" required></p>
+            <p>No. meja: <input id="meja" type="number" min="1" required></p>
+            <p>Bayar:
+                <select id="bayar" required>
+                    <option value="" selected disabled>Pilih</option>
+                    <option>Tunai di kasir</option>
+                    <option>QRIS</option>
+                </select>
+            </p>
+            <p>Catatan: <textarea id="catatan" maxlength="150"></textarea></p>
+            <button type="submit">Pesan Sekarang</button>
+        </form>
     </div>
+    <div id="order-success"></div>
 
     <script src="data/food.json"></script>
     <script src="js/cart.js"></script>

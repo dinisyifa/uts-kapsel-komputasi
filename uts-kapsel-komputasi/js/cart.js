@@ -120,4 +120,51 @@ function renderCart() {
         renderNutrisiCart(cart);
     }
  }
+ //Memanggil saat form dikirim
+ function submitOrder(event) {
+    event.preventDefault(); //mencegah halaman ke-reload
+
+    const nama = document.getElementById("nama").value;
+    const meja = document.getElementById("meja").value;
+    const bayar = document.getElementById("bayar").value;
+    const catatan = document.getElementById("catatan").value;
+    const cart = ambilCart();
+
+    //Validasi
+    if (nama === "" || meja === "" || bayar === "") {
+        alert("Nama, nomor meja, dan metode bayar wajib diisi.");
+        return;
+    }
+
+    //menyusun data pesanan
+    const pesanan = {
+        nama : nama,
+        meja: meja,
+        bayar: bayar,
+        catatan: catatan,
+        items: cart,
+        total: hitungTotal(cart),
+        waktu: new Date().toLocaleString("id-ID"),
+    };
+
+    //simpan ke riwayat pesanan
+    const riwayatTersimpan = localStorage.getItem("nutricafe-riwayat");
+    let riwayat = [];
+    if (riwayatTersimpan) {
+        riwayat = JSON.parse(riwayatTersimpan);
+    }
+    riwayat.push(pesanan);
+    localStorage.setItem("nutricafe-riwayat", JSON.stringify(riwayat));
+
+    //menampilkan pesan "sukses"
+    document.getElementById("order-success").innerHTML =
+    `<h3> Pesanan telah masuk!</h3>
+    <p> Terima kasih, ${nama}. Pesanan untuk meja ${meja} sedang disiapkan.</p>
+    <p>Total: ${formatRupiah(pesanan.total)} · Bayar: ${bayar}</p>`;
+
+    //mengosongkan form dan keranjang setelahnya
+    document.getElementById("order-form").reset();
+    kosongkanCart();
+    document.getElementById("cart-empty").style.display = "none";
+ }
 renderCart()
