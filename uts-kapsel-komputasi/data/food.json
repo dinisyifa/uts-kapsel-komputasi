@@ -1,45 +1,83 @@
-const foods = [
-  // ---------- MINUMAN ----------
-  { id: 1, nama: "Caffè Americano", jenis: "minuman", kategori: "Hot Coffees", ukuran: "Tall", harga: 0,
-    kalori: 10, lemak: 0, kolesterol: 0, sodium: 10, karbo: 1, serat: null, gula: 0, protein: 1, kafein: 150 },
-  { id: 2, nama: "Blonde Roast", jenis: "minuman", kategori: "Hot Coffees", ukuran: "Tall", harga: 0,
-    kalori: 5, lemak: 0, kolesterol: 0, sodium: 10, karbo: 0, serat: null, gula: 0, protein: 0, kafein: 270 },
-  { id: 3, nama: "Cappuccino", jenis: "minuman", kategori: "Hot Coffees", ukuran: "Tall", harga: 0,
-    kalori: 90, lemak: 3.5, kolesterol: 15, sodium: 80, karbo: 9, serat: null, gula: 8, protein: 6, kafein: 75 },
-  { id: 4, nama: "Caramel Macchiato", jenis: "minuman", kategori: "Hot Coffees", ukuran: "Tall", harga: 0,
-    kalori: 190, lemak: 6, kolesterol: 20, sodium: 120, karbo: 26, serat: null, gula: 25, protein: 8, kafein: 75 },
-  { id: 5, nama: "Salted Caramel Mocha", jenis: "minuman", kategori: "Hot Coffees", ukuran: "Tall", harga: 0,
-    kalori: 370, lemak: 14, kolesterol: 45, sodium: 290, karbo: 53, serat: null, gula: 46, protein: 10, kafein: 95 },
-  { id: 6, nama: "London Fog Tea Latte", jenis: "minuman", kategori: "Hot Teas", ukuran: "Tall", harga: 0,
-    kalori: 140, lemak: 3, kolesterol: 15, sodium: 80, karbo: 22, serat: null, gula: 22, protein: 5, kafein: 40 },
-  { id: 7, nama: "Royal English Breakfast Tea Latte", jenis: "minuman", kategori: "Hot Teas", ukuran: "Tall", harga: 0,
-    kalori: 110, lemak: 3, kolesterol: 15, sodium: 80, karbo: 16, serat: null, gula: 16, protein: 5, kafein: 40 },
-  { id: 8, nama: "Matcha Green Tea Latte", jenis: "minuman", kategori: "Hot Teas", ukuran: "Tall", harga: 0,
-    kalori: 190, lemak: 5, kolesterol: 20, sodium: 125, karbo: 25, serat: null, gula: 24, protein: 10, kafein: 55 },
-  { id: 9, nama: "Salted Caramel Hot Chocolate", jenis: "minuman", kategori: "Hot Drinks", ukuran: "Tall", harga: 0,
-    kalori: 350, lemak: 13, kolesterol: 35, sodium: 250, karbo: 50, serat: null, gula: 45, protein: 9, kafein: 20 },
-  { id: 10, nama: "Hot Chocolate", jenis: "minuman", kategori: "Hot Drinks", ukuran: "Tall", harga: 0,
-    kalori: 270, lemak: 12, kolesterol: 35, sodium: 105, karbo: 32, serat: null, gula: 27, protein: 10, kafein: 20 },
 
-  // ---------- MAKANAN ----------
-  { id: 11, nama: "Cheeseburger", jenis: "makanan", kategori: "main course", ukuran: "1 porsi", harga: 0,
-    kalori: 300, lemak: 12, kolesterol: 40, sodium: 680, karbo: 33, serat: 2, gula: 7, protein: 15, kafein: 0 },
-  { id: 12, nama: "Classic Chicken Sandwich", jenis: "makanan", kategori: "main course", ukuran: "1 porsi", harga: 0,
-    kalori: 510, lemak: 24, kolesterol: 65, sodium: 1040, karbo: 49, serat: 3, gula: 6, protein: 25, kafein: 0 },
-  { id: 13, nama: "6 piece Buttermilk Crispy Chicken Tenders", jenis: "makanan", kategori: "main course", ukuran: "6 potong", harga: 0,
-    kalori: 760, lemak: 44, kolesterol: 145, sodium: 1890, karbo: 32, serat: 1, gula: 1, protein: 58, kafein: 0 },
-  { id: 14, nama: "6 piece Sweet N' Spicy Honey BBQ Glazed Tenders", jenis: "makanan", kategori: "main course", ukuran: "6 potong", harga: 0,
-    kalori: 960, lemak: 40, kolesterol: 160, sodium: 2670, karbo: 94, serat: 3, gula: 52, protein: 58, kafein: 0 },
-  { id: 15, nama: "Premium Asian Salad w/ Grilled Chicken", jenis: "makanan", kategori: "main course", ukuran: "1 porsi", harga: 0,
-    kalori: 270, lemak: 9, kolesterol: 80, sodium: 740, karbo: 18, serat: 5, gula: 10, protein: 31, kafein: 0 },
-  { id: 16, nama: "Premium Bacon Ranch Salad w/ Grilled Chicken", jenis: "makanan", kategori: "main course", ukuran: "1 porsi", harga: 0,
-    kalori: 320, lemak: 14, kolesterol: 45, sodium: 1230, karbo: 9, serat: 3, gula: 4, protein: 42, kafein: 0 },
-  { id: 17, nama: "Premium Southwest Salad w/ Grilled Chicken", jenis: "makanan", kategori: "main course", ukuran: "1 porsi", harga: 0,
-    kalori: 350, lemak: 12, kolesterol: 110, sodium: 1070, karbo: 27, serat: 6, gula: 9, protein: 37, kafein: 0 },
-  { id: 18, nama: "6 piece Chicken Nuggets", jenis: "makanan", kategori: "snacks", ukuran: "6 potong", harga: 0,
-    kalori: 190, lemak: 9, kolesterol: 55, sodium: 730, karbo: 7, serat: 1, gula: 0, protein: 21, kafein: 0 },
-  { id: 19, nama: "Chicken Salad Sandwich", jenis: "makanan", kategori: "main course", ukuran: "1 porsi", harga: 0,
-    kalori: 490, lemak: 19, kolesterol: 80, sodium: 1130, karbo: 55, serat: 5, gula: 12, protein: 28, kafein: 0 },
-  { id: 20, nama: "Corn Dog", jenis: "makanan", kategori: "snacks", ukuran: "1 porsi", harga: 0,
-    kalori: 210, lemak: 11, kolesterol: 20, sodium: 530, karbo: 23, serat: 2, gula: 4, protein: 6, kafein: 0 }
+const foods = [
+  {
+    id: 1,
+    nama: "Garang Asem Ayam",
+    kategori: "Makanan",
+    deskripsi: "Ayam berbumbu gurih yang dipadukan dengan santan, telur, tomat, dan cabai untuk cita rasa segar dan sedikit pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 489.94, protein: 25.76, lemak: 38.64, karbohidrat: 11.43 }
+  },
+  {
+    id: 2,
+    nama: "Sambal Balado Udang Kentang Pete",
+    kategori: "Makanan",
+    deskripsi: "Udang dan kentang yang dipadukan dengan sambal balado pedas, tomat, serta petai untuk cita rasa gurih dan menggugah selera.",
+    porsi: 1,
+    nutrisi: { kalori: 484.06, protein: 77.73, lemak: 1.39, karbohidrat: 37.50 }
+  },
+  {
+    id: 3,
+    nama: "Sambal Balado Ayam",
+    kategori: "Makanan",
+    deskripsi: "Potongan ayam berbumbu yang dipadukan dengan sambal balado dari cabai dan bawang merah untuk rasa gurih dan pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 401.59, protein: 19.82, lemak: 30.75, karbohidrat: 11.52 }
+  },
+  {
+    id: 4,
+    nama: "Gulai Pisang Telur",
+    kategori: "Makanan",
+    deskripsi: "Pisang tanduk dan telur yang dipadukan dengan kuah santan berbumbu gulai, cabai, dan ebi untuk cita rasa gurih dan kaya rempah.",
+    porsi: 1,
+    nutrisi: { kalori: 258.40, protein: 7.19, lemak: 24.50, karbohidrat: 5.47 }
+  },
+  {
+    id: 5,
+    nama: "Gulai Tunjang",
+    kategori: "Makanan",
+    deskripsi: "Tunjang dan rebung yang dimasak dalam kuah santan berbumbu rempah khas Minang dengan cita rasa gurih dan kaya rempah.",
+    porsi: 1,
+    nutrisi: { kalori: 1910.87, protein: 47.31, lemak: 181.97, karbohidrat: 51.52 }
+  },
+  {
+    id: 6,
+    nama: "Woku Ikan Kembung",
+    kategori: "Makanan",
+    deskripsi: "Ikan kembung berbumbu khas Manado yang dipadukan dengan cabai, tomat, kunyit, jahe, dan rempah aromatik untuk rasa segar dan pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 151.78, protein: 21.63, lemak: 4.07, karbohidrat: 7.61 }
+  },
+  {
+    id: 7,
+    nama: "Bistik Ayam",
+    kategori: "Makanan",
+    deskripsi: "Ayam yang dipadukan dengan telur, wortel, kentang, dan bumbu khas bistik untuk rasa gurih, manis, dan kaya rempah.",
+    porsi: 1,
+    nutrisi: { kalori: 417.59, protein: 22.57, lemak: 28.08, karbohidrat: 18.79 }
+  },
+  {
+    id: 8,
+    nama: "Ratatouille Tempe Telur",
+    kategori: "Makanan",
+    deskripsi: "Perpaduan tempe dan telur dengan terong, wortel, tomat, serta saus tomat yang menghasilkan hidangan gurih dengan sentuhan pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 391.66, protein: 28.73, lemak: 13.11, karbohidrat: 45.11 }
+  },
+  {
+    id: 9,
+    nama: "Mapo Doufu Ati Ayam",
+    kategori: "Makanan",
+    deskripsi: "Tahu lembut dan ati ayam yang dipadukan dengan saus cabai, saus tiram, jahe, dan daun bawang untuk rasa gurih dan sedikit pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 200.54, protein: 12.23, lemak: 15.78, karbohidrat: 4.05 }
+  },
+  {
+    id: 10,
+    nama: "Pindang Serani",
+    kategori: "Makanan",
+    deskripsi: "Ikan segar dengan kuah bening berbumbu kunyit, tomat, belimbing wuluh, dan cabai yang memberikan rasa gurih, segar, dan sedikit asam.",
+    porsi: 1,
+    nutrisi: { kalori: 66.35, protein: 2.32, lemak: 1.13, karbohidrat: 12.48 }
+  }
 ];

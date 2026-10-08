@@ -1,25 +1,13 @@
-const ingredients = [
-  // ---------- MINUMAN ----------
-  { menuId: 1,  bahan: ["Espresso", "Air panas"] },
-  { menuId: 2,  bahan: ["Kopi seduh blonde roast"] },
-  { menuId: 3,  bahan: ["Espresso", "Susu steamed", "Busa susu tebal"] },
-  { menuId: 4,  bahan: ["Espresso", "Susu steamed", "Sirup vanila", "Saus karamel"] },
-  { menuId: 5,  bahan: ["Espresso", "Susu steamed", "Saus mocha", "Sirup toffee nut", "Whipped cream", "Taburan garam karamel"] },
-  { menuId: 6,  bahan: ["Teh Earl Grey", "Susu steamed", "Sirup vanila"] },
-  { menuId: 7,  bahan: ["Teh English Breakfast", "Susu steamed", "Gula cair"] },
-  { menuId: 8,  bahan: ["Bubuk matcha", "Susu steamed"] },
-  { menuId: 9,  bahan: ["Saus mocha", "Sirup toffee nut", "Susu steamed", "Whipped cream", "Taburan garam karamel"] },
-  { menuId: 10, bahan: ["Saus mocha", "Sirup vanila", "Susu steamed", "Whipped cream"] },
 
-  // ---------- MAKANAN ----------
-  { menuId: 11, bahan: ["Roti burger", "Patty daging sapi", "Keju", "Acar", "Bawang", "Saus tomat", "Mustard"] },
-  { menuId: 12, bahan: ["Roti", "Fillet ayam goreng tepung", "Selada", "Mayones"] },
-  { menuId: 13, bahan: ["Fillet ayam", "Tepung buttermilk", "Minyak goreng"] },
-  { menuId: 14, bahan: ["Fillet ayam", "Tepung", "Saus madu BBQ pedas", "Minyak goreng"] },
-  { menuId: 15, bahan: ["Ayam panggang", "Selada campur", "Edamame", "Wortel", "Kacang almond", "Jeruk mandarin"] },
-  { menuId: 16, bahan: ["Ayam panggang", "Selada campur", "Bacon", "Keju", "Tomat", "Saus ranch"] },
-  { menuId: 17, bahan: ["Ayam panggang", "Selada campur", "Kacang hitam", "Jagung", "Tomat", "Keju", "Tortilla strip"] },
-  { menuId: 18, bahan: ["Daging ayam", "Tepung roti", "Minyak goreng"] },
-  { menuId: 19, bahan: ["Roti", "Salad ayam", "Selada", "Tomat", "Mayones"] },
-  { menuId: 20, bahan: ["Sosis", "Adonan tepung jagung", "Minyak goreng"] }
+const ingredients = [
+  { menuId: 1, bahan: ["Ayam", "Telur", "Santan", "Bawang putih", "Bawang merah", "Cabai", "Daun salam", "Tomat", "Gula", "Garam", "Lada"] },
+  { menuId: 2, bahan: ["Kentang", "Udang", "Petai", "Cabai merah", "Bawang merah", "Bawang putih", "Kemiri", "Tomat", "Serai", "Daun jeruk", "Garam", "Gula"] },
+  { menuId: 3, bahan: ["Ayam", "Bawang putih", "Ketumbar", "Cabai keriting", "Cabai rawit", "Bawang merah", "Minyak goreng", "Garam"] },
+  { menuId: 4, bahan: ["Pisang tanduk", "Telur", "Santan", "Bumbu gulai", "Cabai merah", "Ebi", "Garam", "Gula", "Lada"] },
+  { menuId: 5, bahan: ["Tunjang", "Rebung", "Santan", "Cabai", "Bawang putih", "Bawang merah", "Jahe", "Lengkuas", "Kunyit", "Serai", "Daun kunyit", "Daun jeruk", "Daun salam"] },
+  { menuId: 6, bahan: ["Ikan kembung", "Bawang merah", "Bawang putih", "Cabai rawit", "Cabai merah", "Kunyit", "Jahe", "Tomat", "Serai", "Daun jeruk", "Daun kunyit", "Daun pandan", "Jeruk nipis"] },
+  { menuId: 7, bahan: ["Ayam", "Telur", "Wortel", "Kentang", "Daun bawang", "Daun seledri", "Bawang merah", "Bawang putih", "Kemiri", "Jahe", "Kecap manis", "Gula merah", "Kayu manis", "Cengkeh"] },
+  { menuId: 8, bahan: ["Telur", "Tempe", "Tomat", "Cabai merah", "Terong", "Wortel", "Bawang bombay", "Bawang putih", "Saus tomat", "Cabai rawit", "Daun kemangi", "Gula", "Garam", "Merica"] },
+  { menuId: 9, bahan: ["Tahu", "Ati ayam", "Bawang putih", "Jahe", "Saus sambal", "Kecap Inggris", "Saus tiram", "Merica", "Bubuk cabai", "Daun bawang", "Minyak goreng"] },
+  { menuId: 10, bahan: ["Ikan kakap putih", "Bawang merah", "Bawang putih", "Kunyit", "Tomat", "Belimbing wuluh", "Cabai merah", "Cabai rawit", "Lengkuas", "Serai", "Daun salam", "Daun jeruk"] }
 ];
