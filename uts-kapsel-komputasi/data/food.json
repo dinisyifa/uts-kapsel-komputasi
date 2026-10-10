@@ -1,0 +1,165 @@
+
+const foods = [
+  {
+    id: 1,
+    nama: "Garang Asem Ayam",
+    kategori: "Makanan",
+    deskripsi: "Ayam berbumbu gurih yang dipadukan dengan santan, telur, tomat, dan cabai untuk cita rasa segar dan sedikit pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 489.94, protein: 25.76, lemak: 38.64, karbohidrat: 11.43 }
+  },
+  {
+    id: 2,
+    nama: "Sambal Balado Udang Kentang Pete",
+    kategori: "Makanan",
+    deskripsi: "Udang dan kentang yang dipadukan dengan sambal balado pedas, tomat, serta petai untuk cita rasa gurih dan menggugah selera.",
+    porsi: 1,
+    nutrisi: { kalori: 484.06, protein: 77.73, lemak: 1.39, karbohidrat: 37.50 }
+  },
+  {
+    id: 3,
+    nama: "Sambal Balado Ayam",
+    kategori: "Makanan",
+    deskripsi: "Potongan ayam berbumbu yang dipadukan dengan sambal balado dari cabai dan bawang merah untuk rasa gurih dan pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 401.59, protein: 19.82, lemak: 30.75, karbohidrat: 11.52 }
+  },
+  {
+    id: 4,
+    nama: "Gulai Pisang Telur",
+    kategori: "Makanan",
+    deskripsi: "Pisang tanduk dan telur yang dipadukan dengan kuah santan berbumbu gulai, cabai, dan ebi untuk cita rasa gurih dan kaya rempah.",
+    porsi: 1,
+    nutrisi: { kalori: 258.40, protein: 7.19, lemak: 24.50, karbohidrat: 5.47 }
+  },
+  {
+    id: 5,
+    nama: "Gulai Tunjang",
+    kategori: "Makanan",
+    deskripsi: "Tunjang dan rebung yang dimasak dalam kuah santan berbumbu rempah khas Minang dengan cita rasa gurih dan kaya rempah.",
+    porsi: 1,
+    nutrisi: { kalori: 1910.87, protein: 47.31, lemak: 181.97, karbohidrat: 51.52 }
+  },
+  {
+    id: 6,
+    nama: "Woku Ikan Kembung",
+    kategori: "Makanan",
+    deskripsi: "Ikan kembung berbumbu khas Manado yang dipadukan dengan cabai, tomat, kunyit, jahe, dan rempah aromatik untuk rasa segar dan pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 151.78, protein: 21.63, lemak: 4.07, karbohidrat: 7.61 }
+  },
+  {
+    id: 7,
+    nama: "Bistik Ayam",
+    kategori: "Makanan",
+    deskripsi: "Ayam yang dipadukan dengan telur, wortel, kentang, dan bumbu khas bistik untuk rasa gurih, manis, dan kaya rempah.",
+    porsi: 1,
+    nutrisi: { kalori: 417.59, protein: 22.57, lemak: 28.08, karbohidrat: 18.79 }
+  },
+  {
+    id: 8,
+    nama: "Ratatouille Tempe Telur",
+    kategori: "Makanan",
+    deskripsi: "Perpaduan tempe dan telur dengan terong, wortel, tomat, serta saus tomat yang menghasilkan hidangan gurih dengan sentuhan pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 391.66, protein: 28.73, lemak: 13.11, karbohidrat: 45.11 }
+  },
+  {
+    id: 9,
+    nama: "Mapo Doufu Ati Ayam",
+    kategori: "Makanan",
+    deskripsi: "Tahu lembut dan ati ayam yang dipadukan dengan saus cabai, saus tiram, jahe, dan daun bawang untuk rasa gurih dan sedikit pedas.",
+    porsi: 1,
+    nutrisi: { kalori: 200.54, protein: 12.23, lemak: 15.78, karbohidrat: 4.05 }
+  },
+  {
+    id: 10,
+    nama: "Pindang Serani",
+    kategori: "Makanan",
+    deskripsi: "Ikan segar dengan kuah bening berbumbu kunyit, tomat, belimbing wuluh, dan cabai yang memberikan rasa gurih, segar, dan sedikit asam.",
+    porsi: 1,
+    nutrisi: { kalori: 66.35, protein: 2.32, lemak: 1.13, karbohidrat: 12.48 }
+  }
+
+  // ---------- MINUMAN (Starbucks, ukuran Tall) ----------
+  {
+    id: 11,
+    nama: "Caffè Americano",
+    kategori: "Minuman",
+    deskripsi: "Espresso yang dilarutkan dengan air panas, menghasilkan kopi hitam ringan tanpa susu dan gula. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 10, protein: 1, lemak: 0, karbohidrat: 1 }
+  },
+  {
+    id: 12,
+    nama: "Blonde Roast",
+    kategori: "Minuman",
+    deskripsi: "Kopi seduh dari biji sangrai ringan dengan rasa lembut dan kafein tinggi. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 5, protein: 0, lemak: 0, karbohidrat: 0 }
+  },
+  {
+    id: 13,
+    nama: "Cappuccino",
+    kategori: "Minuman",
+    deskripsi: "Espresso dengan susu steamed dan lapisan busa susu tebal. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 90, protein: 6, lemak: 3.5, karbohidrat: 9 }
+  },
+  {
+    id: 14,
+    nama: "Caramel Macchiato",
+    kategori: "Minuman",
+    deskripsi: "Susu steamed dengan sirup vanila, espresso, dan saus karamel di atasnya. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 190, protein: 8, lemak: 6, karbohidrat: 26 }
+  },
+  {
+    id: 15,
+    nama: "Salted Caramel Mocha",
+    kategori: "Minuman",
+    deskripsi: "Espresso, saus mocha, dan sirup toffee nut dengan whipped cream dan taburan garam karamel. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 370, protein: 10, lemak: 14, karbohidrat: 53 }
+  },
+  {
+    id: 16,
+    nama: "London Fog Tea Latte",
+    kategori: "Minuman",
+    deskripsi: "Teh Earl Grey dengan susu steamed dan sirup vanila. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 140, protein: 5, lemak: 3, karbohidrat: 22 }
+  },
+  {
+    id: 17,
+    nama: "Royal English Breakfast Tea Latte",
+    kategori: "Minuman",
+    deskripsi: "Teh hitam English Breakfast dengan susu steamed dan sedikit gula cair. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 110, protein: 5, lemak: 3, karbohidrat: 16 }
+  },
+  {
+    id: 18,
+    nama: "Matcha Green Tea Latte",
+    kategori: "Minuman",
+    deskripsi: "Bubuk teh hijau matcha yang dipadukan dengan susu steamed. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 190, protein: 10, lemak: 5, karbohidrat: 25 }
+  },
+  {
+    id: 19,
+    nama: "Salted Caramel Hot Chocolate",
+    kategori: "Minuman",
+    deskripsi: "Cokelat panas dengan sirup toffee nut, whipped cream, dan taburan garam karamel. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 350, protein: 9, lemak: 13, karbohidrat: 50 }
+  },
+  {
+    id: 20,
+    nama: "Hot Chocolate",
+    kategori: "Minuman",
+    deskripsi: "Saus mocha dan sirup vanila dengan susu steamed dan whipped cream. Ukuran Tall.",
+    porsi: 1,
+    nutrisi: { kalori: 270, protein: 10, lemak: 12, karbohidrat: 32 }
+  }
+  ];
