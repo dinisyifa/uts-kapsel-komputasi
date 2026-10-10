@@ -1,105 +1,190 @@
-/*CART*/
+/* CART */
 
-/* Angka di ikon keranjang */
-#cart-count {
-  background: var(--hijau, #2f9e44);
-  color: white;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: bold;
+/* Kotak putih pembungkus (dipakai tabel, total, dan form) */
+.cart-card {
+    background: #ffffff;
+    border: 1px solid #e7e7e2;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+/* Keranjang kosong */
+#cart-empty {
+    padding: 60px 20px;
+    text-align: center;
+    color: #8c908a;
+    font-size: 14px;
 }
 
 /* Tabel keranjang */
+.cart-table-wrap {
+    overflow-x: auto; /* di HP tabel bisa digeser ke samping */
+}
+
 #cart-content table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
+    width: 100%;
+    border-collapse: collapse;
 }
+
 #cart-content th {
-  background: var(--hijau, #2f9e44);
-  color: white;
-  text-align: left;
-  padding: 10px;
+    padding: 14px 18px;
+    background: #eef3ec;
+    color: #58715a;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
+
 #cart-content td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+    padding: 14px 18px;
+    border-top: 1px solid #eeeeea;
+    color: #41463f;
+    font-size: 14px;
+    white-space: nowrap; /* isi sel tidak turun ke baris baru */
 }
 
 /* Tombol + dan − */
 .qty-btn {
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--hijau, #2f9e44);
-  border-radius: 50%;
-  background: white;
-  color: var(--hijau, #2f9e44);
-  cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dedfd9;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #3e5a43;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
 }
+
 .qty-btn:hover {
-  background: var(--hijau, #2f9e44);
-  color: white;
+    border-color: #91a88f;
+    background: #eef3ec;
 }
 
 /* Tombol Hapus */
 .hapus-btn {
-  border: none;
-  background: none;
-  color: #e03131;
-  cursor: pointer;
+    border: none;
+    background: none;
+    color: #b4554b;
+    font-size: 13px;
+    cursor: pointer;
 }
 
-/* Total harga */
+.hapus-btn:hover {
+    text-decoration: underline;
+}
+
+/* Baris total */
+.cart-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    color: #6c716a;
+    font-size: 14px;
+}
+
 #total-harga {
-  color: var(--hijau, #2f9e44);
-  font-size: 20px;
+    color: var(--hijau, #3e5a43);
+    font-size: 22px;
+    font-weight: 700;
 }
 
 /* Form pemesanan */
 #order-form {
-  margin-top: 20px;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 10px;
+    padding: 22px 18px;
 }
+
+#order-form h3 {
+    margin-bottom: 14px;
+    color: #30352f;
+    font-size: 18px;
+}
+
+#order-form label {
+    display: block;
+    margin: 14px 0 6px;
+    color: #6c716a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
 #order-form input,
 #order-form select,
 #order-form textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #dedfd9;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #30352f;
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.2s;
 }
-#order-form button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background: var(--hijau, #2f9e44);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+
+#order-form input:focus,
+#order-form select:focus,
+#order-form textarea:focus {
+    outline: none;
+    border-color: #91a88f;
+    box-shadow: 0 0 0 3px rgba(145, 168, 143, 0.12);
+}
+
+#order-form button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: var(--hijau, #3e5a43);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#order-form button[type="submit"]:hover {
+    background: #304833;
+    transform: translateY(-1px);
 }
 
 /* Pesan sukses */
+#order-success:empty {
+    display: none;
+}
+
+#order-success {
+    padding: 40px 20px;
+    text-align: center;
+    background: #eef3ec;
+    border-radius: 16px;
+    color: #41463f;
+}
+
 #order-success h3 {
-  color: var(--hijau, #2f9e44);
+    margin-bottom: 8px;
+    color: var(--hijau, #3e5a43);
+    font-size: 22px;
 }
 
 /* Notifikasi toast */
 #toast {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #333;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: #30352f;
+    color: #ffffff;
+    font-size: 13px;
+    z-index: 200;
 }
 /* STYLE MENU */
 

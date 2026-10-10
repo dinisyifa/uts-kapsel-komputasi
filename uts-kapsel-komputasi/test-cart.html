@@ -2,41 +2,98 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>Tes Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriCafe - Keranjang (Tes)</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Tes Cart</h1>
-    <p>Keranjang: <span id="cart-count">0</span></p>
-    <div id="toast" style="display: none"></div>
-    <div id="cart-empty">Keranjang masih kosong.</div>
+    <nav class="navbar">
+      <div class="logo">Nutri<span>Cafe</span></div>
 
-    <div id="cart-content">
-      <table>
-        <thead>
-          <tr><th>Menu</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr>
-        </thead>
-        <tbody id="cart-body"></tbody>
-      </table>
-      <p>Total: <b id="total-harga">Rp 0</b></p>
-        <form id="order-form" onsubmit="submitOrder(event)">
-            <p>Nama: <input id="nama" maxlength="40" required></p>
-            <p>No. meja: <input id="meja" type="number" min="1" required></p>
-            <p>Bayar:
-                <select id="bayar" required>
-                    <option value="" selected disabled>Pilih</option>
-                    <option>Tunai di kasir</option>
-                    <option>QRIS</option>
-                </select>
-            </p>
-            <p>Catatan: <textarea id="catatan" maxlength="150"></textarea></p>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="test-menu.html">Menu</a>
+        <a href="test-cart.html" class="active">Keranjang</a>
+      </div>
+
+      <div class="cart-icon">
+        🛒
+        <span id="cart-count">0</span>
+      </div>
+    </nav>
+
+    <main>
+      <section class="menu-header">
+        <p class="eyebrow">KERANJANG</p>
+        <h1>Pesananmu</h1>
+        <p class="menu-subtitle">
+          Cek kembali pesananmu, lalu isi data pemesan untuk mengirim pesanan.
+        </p>
+      </section>
+
+      <!-- KHUSUS TES: tombol cepat untuk mengisi keranjang -->
+      <div class="filter-buttons" id="tes-tambah" style="flex-wrap: wrap; margin-bottom: 24px"></div>
+
+      <div id="cart-empty" class="cart-card">
+        Keranjang masih kosong. Yuk pilih menu dulu!
+      </div>
+
+      <div id="cart-content">
+        <div class="cart-card">
+          <div class="cart-table-wrap">
+            <table>
+              <thead>
+                <tr><th>Menu</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th><th>Aksi</th></tr>
+              </thead>
+              <tbody id="cart-body"></tbody>
+            </table>
+          </div>
+          <div class="cart-total">
+            <span>Total</span>
+            <b id="total-harga">Rp 0</b>
+          </div>
+        </div>
+
+        <div class="cart-card">
+          <form id="order-form" onsubmit="submitOrder(event)">
+            <h3>Data Pemesan</h3>
+
+            <label for="nama">Nama</label>
+            <input id="nama" maxlength="40" required />
+
+            <label for="meja">No. meja</label>
+            <input id="meja" type="number" min="1" required />
+
+            <label for="bayar">Metode bayar</label>
+            <select id="bayar" required>
+              <option value="" selected disabled>Pilih</option>
+              <option>Tunai di kasir</option>
+              <option>QRIS</option>
+            </select>
+
+            <label for="catatan">Catatan</label>
+            <textarea id="catatan" maxlength="150" rows="3"></textarea>
+
             <button type="submit">Pesan Sekarang</button>
-        </form>
-    </div>
-    <div id="order-success"></div>
+          </form>
+        </div>
+      </div>
+
+      <div id="order-success"></div>
+    </main>
+
+    <div id="toast"></div>
 
     <script src="data/food.json"></script>
     <script src="js/cart.js"></script>
+    <script>
+      // KHUSUS HALAMAN TES: tombol cepat untuk mengisi keranjang
+      const tombolTes = [];
+      foods.forEach((food) => {
+        tombolTes.push(`<button class="filter-btn" onclick="tambahKeCart(${food.id})">+ ${food.nama}</button>`);
+      });
+      tombolTes.push(`<button class="filter-btn" onclick="kosongkanCart()">🗑 Kosongkan</button>`);
+      document.getElementById("tes-tambah").innerHTML = tombolTes.join("");
+    </script>
   </body>
 </html>
-
