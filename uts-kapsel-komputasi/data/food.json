@@ -79,7 +79,7 @@ const foods = [
     deskripsi: "Ikan segar dengan kuah bening berbumbu kunyit, tomat, belimbing wuluh, dan cabai yang memberikan rasa gurih, segar, dan sedikit asam.",
     porsi: 1,
     nutrisi: { kalori: 66.35, protein: 2.32, lemak: 1.13, karbohidrat: 12.48 }
-  }
+  },
 
   // ---------- MINUMAN (Starbucks, ukuran Tall) ----------
   {
@@ -140,7 +140,7 @@ const foods = [
   },
   {
     id: 18,
-    nama: "Matcha Green Tea Latte",
+    nama: "Matcha Latte",
     kategori: "Minuman",
     deskripsi: "Bubuk teh hijau matcha yang dipadukan dengan susu steamed. Ukuran Tall.",
     porsi: 1,
