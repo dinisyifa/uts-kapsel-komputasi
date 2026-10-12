@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriCafe - Menu</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         NAVBAR
+    =============================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#" class="active">Menu</a>
+            <a href="#">Keranjang</a>
+        </div>
+
+        <div class="cart-icon">
+            🛒
+            <span id="cart-count">0</span>
+        </div>
+
+    </nav>
+
+
+    <!-- ==============================
+         MENU HEADER
+    =============================== -->
+
+    <main>
+
+        <section class="menu-header">
+
+            <p class="eyebrow">
+                NUTRISI & RASA
+            </p>
+
+            <h1>
+                Temukan Menu Favoritmu
+            </h1>
+
+            <p class="menu-subtitle">
+                Pilih makanan dan minuman favoritmu, lalu lihat
+                informasi nutrisinya sebelum memesan.
+            </p>
+
+        </section>
+
+
+        <!-- ==============================
+             SEARCH
+        =============================== -->
+
+        <section class="menu-tools">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Cari menu..."
+                >
+
+            </div>
+
+
+            <!-- ==============================
+                 FILTER
+            =============================== -->
+
+            <div class="filter-buttons">
+
+                <button
+                    class="filter-btn active"
+                    data-kategori="Semua"
+                >
+                    Semua
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-kategori="Makanan"
+                >
+                    Makanan
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-kategori="Minuman"
+                >
+                    Minuman
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             MENU LIST
+        =============================== -->
+
+        <section id="menu-list">
+
+            <!-- Card menu akan dibuat oleh menu.js -->
+
+        </section>
+
+
+        <!-- ==============================
+             EMPTY MESSAGE
+        =============================== -->
+
+        <div id="menu-empty" class="menu-empty">
+
+            <div class="empty-icon">
+                🍽️
+            </div>
+
+            <h3>
+                Menu tidak ditemukan
+            </h3>
+
+            <p>
+                Coba gunakan kata kunci pencarian yang lain.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==============================
+         SCRIPT
+    =============================== -->
+
+    <script src="data/ingredients.json"></script>
+    <script src="data/food.json"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/menu.js"></script>
+
+</body>
+</html>

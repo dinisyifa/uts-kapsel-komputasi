@@ -22,4 +22,8 @@ const ingredients = [
   { menuId: 18, bahan: ["Bubuk matcha", "Susu steamed"] },
   { menuId: 19, bahan: ["Saus mocha", "Sirup toffee nut", "Susu steamed", "Whipped cream", "Taburan garam karamel"] },
   { menuId: 20, bahan: ["Saus mocha", "Sirup vanila", "Susu steamed", "Whipped cream"] }
+<<<<<<< HEAD
   ];
+=======
+  ];
+>>>>>>> origin/Agatha
