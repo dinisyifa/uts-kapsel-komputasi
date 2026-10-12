@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriCafe - Home</title>
+
+    <!-- Font:
+         Playfair Display untuk judul, Plus Jakarta Sans untuk teks.
+         Kalau tidak ada internet, otomatis memakai Georgia dan Arial. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- tampilan -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home-page">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar home-navbar">
+
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html">Keranjang</a>
+        </div>
+
+        <a href="cart.html" class="cart-icon home-cart-link">
+            🛒
+            <span id="cart-count">0</span>
+        </a>
+
+    </nav>
+
+
+    <!-- Foto -->
+
+    <header class="home-hero">
+
+        <div class="home-container home-hero-grid">
+
+            <!-- Kiri: judul, tombol, dan angka -->
+            <div class="home-hero-text">
+
+                <p class="home-eyebrow">CAFE MENU & NUTRITION TRACKER</p>
+
+                <h1>
+                    Nikmati Rasanya,<br>
+                    <span>Pahami Nutrisinya.</span>
+                </h1>
+
+                <p class="home-hero-subtitle">
+                    Hidangan lezat dengan informasi gizi yang jelas di setiap porsi,
+                    untuk kamu yang ingin makan enak tanpa menebak-nebak.
+                </p>
+
+                <div class="home-hero-buttons">
+                    <a href="menu.html" class="home-btn home-btn-lime">Lihat Menu &rarr;</a>
+                    <a href="cart.html" class="home-btn home-btn-ghost">Buka Keranjang</a>
+                </div>
+
+                <!-- Angka singkat -->
+                <div class="home-stats">
+                    <div class="home-stat">
+                        <strong>20</strong>
+                        <span>Pilihan menu</span>
+                    </div>
+                    <div class="home-stat">
+                        <strong>10</strong>
+                        <span>Makanan</span>
+                    </div>
+                    <div class="home-stat">
+                        <strong>10</strong>
+                        <span>Minuman</span>
+                    </div>
+                    <div class="home-stat">
+                        <strong>4</strong>
+                        <span>Info gizi per menu</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- CONTOH INFO GIZI (diagram donat dari CSS) -->
+
+        <section class="home-nutri">
+
+            <div class="home-nutri-text">
+                <p class="home-eyebrow home-eyebrow-dark">CONTOH INFO GIZI</p>
+                <h2>Tahu isi piringmu sebelum memesan</h2>
+                <p>
+                    Setiap menu punya data kalori, protein, lemak, dan karbohidrat.
+                    Diagram di samping menunjukkan dari mana kalori sebuah menu berasal.
+                </p>
+                <p class="home-rumus">
+                    Kalori = 9 &times; lemak + 4 &times; protein + 4 &times; karbohidrat
+                </p>
+                <a href="menu.html" class="home-btn home-btn-green">Lihat semua menu &rarr;</a>
+            </div>
+
+            <div class="home-nutri-card">
+
+                <p class="home-nutri-label">CONTOH MENU</p>
+                <h3>Garang Asem Ayam</h3>
+                <p class="home-nutri-price">Rp32.000 &middot; 1 porsi</p>
+
+                <!-- Lingkaran donat: warnanya diatur di CSS (conic-gradient) -->
+                <div class="home-donut">
+                    <div class="home-donut-center">
+                        <strong>490</strong>
+                        <small>kkal</small>
+                    </div>
+                </div>
+
+                <!-- Keterangan warna donat -->
+                <ul class="home-legend">
+                    <li><span class="dot dot-lemak"></span> Lemak <b>38,6 g</b></li>
+                    <li><span class="dot dot-protein"></span> Protein <b>25,8 g</b></li>
+                    <li><span class="dot dot-karbo"></span> Karbo <b>11,4 g</b></li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- PROMO + COUNTDOWN
+             (materi minggu 3: setInterval, Date, Math.floor) -->
+
+        <section class="home-promo">
+
+            <div class="home-promo-text">
+                <p class="home-eyebrow">PROMO HARI INI</p>
+                <h2>Gratis air mineral untuk setiap pesanan makanan</h2>
+                <p>Tunjukkan pesananmu di kasir. Promo berakhir pukul 23.59 malam ini.</p>
+            </div>
+
+            <!-- Angka jam, menit, detik diisi oleh JavaScript di bawah -->
+            <div id="promo-clock" class="home-clock">
+                <div>
+                    <span class="hours">00</span>
+                    <small>Jam</small>
+                </div>
+                <div>
+                    <span class="minutes">00</span>
+                    <small>Menit</small>
+                </div>
+                <div>
+                    <span class="seconds">00</span>
+                    <small>Detik</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- KEUNGGULAN -->
+
+        <section class="home-section">
+
+            <p class="home-eyebrow home-eyebrow-dark">KENAPA NUTRICAFE</p>
+            <h2>Pesan dengan lebih sadar gizi</h2>
+
+            <div class="home-features">
+
+                <div class="home-feature">
+                    <div class="home-feature-icon">🔥</div>
+                    <h3>Info gizi lengkap</h3>
+                    <p>Setiap menu menampilkan kalori, protein, lemak, dan karbohidrat per porsi.</p>
+                </div>
+
+                <div class="home-feature">
+                    <div class="home-feature-icon">🧮</div>
+                    <h3>Total gizi otomatis</h3>
+                    <p>Keranjang menjumlahkan harga dan gizi semua pesananmu sekaligus.</p>
+                </div>
+
+                <div class="home-feature">
+                    <div class="home-feature-icon">🥗</div>
+                    <h3>Bahan transparan</h3>
+                    <p>Daftar bahan penyusun setiap menu bisa dilihat sebelum memesan.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARA PESAN (memakai <ol>, materi minggu 1) -->
+
+        <section class="home-section">
+
+            <p class="home-eyebrow home-eyebrow-dark">CARA PESAN</p>
+            <h2>Pesan dalam 3 langkah</h2>
+
+            <ol class="home-steps">
+
+                <li class="home-step">
+                    <h3>Pilih menu</h3>
+                    <p>Cari makanan atau minuman, lalu saring berdasarkan kategori.</p>
+                </li>
+
+                <li class="home-step">
+                    <h3>Cek nutrisinya</h3>
+                    <p>Lihat kalori, protein, lemak, karbohidrat, dan bahan penyusun setiap menu.</p>
+                </li>
+
+                <li class="home-step">
+                    <h3>Masukkan ke keranjang</h3>
+                    <p>Atur jumlah porsi, isi data pemesan, lalu kirim pesanan.</p>
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- AJAKAN KE HALAMAN MENU -->
+
+        <section class="home-cta">
+
+            <div class="home-cta-text">
+                <h2>Sudah lapar?</h2>
+                <p>Lihat semua makanan, kopi, dan teh NutriCafe beserta informasi gizinya.</p>
+                <a href="menu.html" class="home-btn home-btn-lime">Mulai Pilih Menu &rarr;</a>
+            </div>
+
+            <!-- Foto kopi, dengan cadangan ilustrasi kalau file foto belum ada -->
+            <div class="home-cta-frame">
+                <img
+                    src="assets/images/coffee.jpg"
+                    alt="Kopi latte dengan latte art"
+                    class="home-photo"
+                    onerror="this.onerror = null; this.src = 'assets/images/coffee.svg'; this.classList.add('is-ilustrasi');"
+                >
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+
+        <p>
+            Proyek UTS Kapita Selekta Komputasi &middot; Program Studi Matematika UNPAR
+        </p>
+
+        <p class="footer-small">
+            Dibuat oleh Ressy, Agatha, Dini, Lulu, dan Astrid &copy; 2026
+        </p>
+
+    </footer>
+
+
+    <!-- SCRIPT HALAMAN HOME -->
+
+    <script>
+        // ---------- 1. Angka di ikon keranjang ----------
+        // Keranjang disimpan cart.js di localStorage dengan nama "nutricafe-cart".
+        // Kalau belum ada isinya, pakai array kosong [] (fallback seperti minggu 4).
+        const cartTersimpan = JSON.parse(localStorage.getItem("nutricafe-cart")) || [];
+        let jumlahItem = 0;
+        cartTersimpan.forEach((item) => {
+            jumlahItem = jumlahItem + item.qty;
+        });
+        document.getElementById("cart-count").innerHTML = jumlahItem;
+
+
+        // ---------- 2. Countdown promo (pola countdown.js minggu 3) ----------
+        // Menghitung sisa waktu dari sekarang sampai batas waktu (endtime)
+        function getTimeRemaining(endtime) {
+            const total = Date.parse(endtime) - Date.parse(new Date());
+            const seconds = Math.floor((total / 1000) % 60);
+            const minutes = Math.floor((total / 1000 / 60) % 60);
+            const hours = Math.floor(total / (1000 * 60 * 60));
+            return { total, hours, minutes, seconds };
+        }
+
+        // Memperbarui angka di layar setiap 1 detik
+        function initializeClock(id, endtime) {
+            const clock = document.getElementById(id);
+            const hoursSpan = clock.querySelector(".hours");
+            const minutesSpan = clock.querySelector(".minutes");
+            const secondsSpan = clock.querySelector(".seconds");
+
+            function updateClock() {
+                const t = getTimeRemaining(endtime);
+                hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
+                minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                    clock.innerHTML = "<p>Promo hari ini sudah berakhir.</p>";
+                }
+            }
+
+            updateClock();
+            const timeinterval = setInterval(updateClock, 1000);
+        }
+
+        // Batas promo: hari ini pukul 23:59:59
+        const deadline = new Date();
+        deadline.setHours(23, 59, 59, 0);
+        initializeClock("promo-clock", deadline);
+    </script>
+
+</body>
+</html>
