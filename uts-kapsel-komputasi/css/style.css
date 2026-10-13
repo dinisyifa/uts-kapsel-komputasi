@@ -1,0 +1,305 @@
+/* =========================
+   PENGATURAN DASAR
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FAF8F4;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* =========================
+   Header dan Navigasi
+========================= */
+
+.header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E0D8CE;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: #76563C;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #444444;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #76563C;
+    font-weight: bold;
+}
+
+/* =========================
+   JUDUL HALAMAN
+========================= */
+
+.page-heading {
+    padding: 35px 0 25px;
+}
+
+.page-heading h1 {
+    color: #76563C;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.page-heading p {
+    color: #666666;
+    font-size: 15px;
+}
+
+/* =========================
+   PENCARIAN MENU
+========================= */
+
+.menu-controls {
+    margin-bottom: 25px;
+}
+
+#search {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #D8D0C5;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: #333333;
+    font-size: 14px;
+}
+
+#search:focus {
+    outline: 2px solid #76563C;
+}
+
+/* =========================
+   FILTER KATEGORI
+========================= */
+
+.filter-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #76563C;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: #76563C;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #76563C;
+    color: #FFFFFF;
+}
+
+/* =========================
+   DAFTAR MENU
+========================= */
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding-bottom: 45px;
+}
+
+.menu-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0D8CE;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.menu-card h2 {
+    color: #76563C;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.menu-category {
+    display: inline-block;
+    background-color: #EDE3D7;
+    color: #76563C;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.menu-description {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.menu-portion {
+    color: #444444;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   INFORMASI NUTRISI
+========================= */
+
+.nutrition {
+    border-top: 1px solid #E0D8CE;
+    padding-top: 12px;
+    margin-bottom: 15px;
+}
+
+.nutrition h3 {
+    color: #444444;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.nutrition p {
+    color: #555555;
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+/* =========================
+   TOMBOL MENU
+========================= */
+
+.add-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #76563C;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #5D422D;
+}
+
+/* Tombol belum diaktifkan */
+.add-button:disabled {
+    background-color: #B8A99A;
+    color: #FFFFFF;
+    cursor: not-allowed;
+}
+
+/* =========================
+   PESAN KOSONG / ERROR
+========================= */
+
+.empty-message {
+    color: #666666;
+    padding: 20px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background-color: #EDE3D7;
+    padding: 20px 0;
+    text-align: center;
+    color: #66584A;
+    font-size: 13px;
+}
+
+/* =========================
+   TAMPILAN TABLET
+========================= */
+
+@media (max-width: 850px) {
+    .menu-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================
+   TAMPILAN HP
+========================= */
+
+@media (max-width: 550px) {
+    .navbar {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .menu-list {
+        grid-template-columns: 1fr;
+    }
+
+    .page-heading h1 {
+        font-size: 24px;
+    }
+}
+
+
+
+/* Pesan ketika menu tidak ditemukan */
+.menu-empty {
+    display: none;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.menu-empty h3 {
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.menu-empty p {
+    color: #666666;
+}
