@@ -276,7 +276,7 @@
     <!-- SCRIPT HALAMAN HOME -->
 
     <script>
-        // ---------- 1. Angka di ikon keranjang ----------
+        // -- 1. Angka di ikon keranjang --
         // Keranjang disimpan cart.js di localStorage dengan nama "nutricafe-cart".
         // Kalau belum ada isinya, pakai array kosong [] (fallback seperti minggu 4).
         const cartTersimpan = JSON.parse(localStorage.getItem("nutricafe-cart")) || [];
@@ -287,7 +287,7 @@
         document.getElementById("cart-count").innerHTML = jumlahItem;
 
 
-        // ---------- 2. Countdown promo (pola countdown.js minggu 3) ----------
+        // -- 2. Countdown promo (pola countdown.js minggu 3) --
         // Menghitung sisa waktu dari sekarang sampai batas waktu (endtime)
         function getTimeRemaining(endtime) {
             const total = Date.parse(endtime) - Date.parse(new Date());
