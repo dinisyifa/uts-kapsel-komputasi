@@ -16,7 +16,6 @@
 
 <body>
 
-    <!-- NAVBAR (sama dengan halaman lain) -->
     <nav class="navbar">
 
         <div class="logo">
@@ -59,7 +58,6 @@
         <!-- ISI KERANJANG -->
         <div id="cart-content">
 
-            <!-- 1. Tabel pesanan (diisi oleh cart.js) -->
             <div class="cart-card">
                 <div class="cart-table-wrap">
                     <table class="cart-table">
@@ -85,19 +83,15 @@
             </div>
 
 
-            <!-- 2. Ringkasan gizi (diisi oleh nutrition.js) -->
             <div class="cart-card">
                 <div id="nutri-summary"></div>
 
-                <!-- Grafik Chart.js. Dipisah dari #nutri-summary
-                     supaya tidak ikut terhapus saat ringkasan diisi ulang -->
                 <div class="chart-container">
                     <canvas id="nutri-chart"></canvas>
                 </div>
             </div>
 
 
-            <!-- 3. Form pemesanan (materi minggu 4) -->
             <div class="cart-card">
                 <form id="order-form" onsubmit="submitOrder(event)">
                     <h3>Data Pemesan</h3>
@@ -125,7 +119,6 @@
         </div>
 
 
-        <!-- PESAN SUKSES (diisi oleh submitOrder di cart.js) -->
         <div id="order-success"></div>
 
     </main>
@@ -141,15 +134,12 @@
     </footer>
 
 
-    <!-- Notifikasi kecil -->
     <div id="toast"></div>
 
 
     <!-- SCRIPT -->
-    <!-- Chart.js untuk grafik (butuh internet; kalau offline grafiknya otomatis disembunyikan) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Data dulu, lalu nutrition.js, terakhir cart.js -->
     <script src="data/food.json"></script>
     <script src="data/ingredients.json"></script>
     <script src="js/nutrition.js"></script>

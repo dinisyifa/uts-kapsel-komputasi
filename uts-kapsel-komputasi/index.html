@@ -6,20 +6,14 @@
 
     <title>Spice &amp; Sip - Home</title>
 
-    <!-- Font:
-         Playfair Display untuk judul, Plus Jakarta Sans untuk teks.
-         Kalau tidak ada internet, otomatis memakai Georgia dan Arial. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- tampilan -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="home-page">
-
-    <!-- NAVBAR -->
 
     <nav class="navbar home-navbar">
 
@@ -41,16 +35,13 @@
     </nav>
 
 
-    <!-- Foto -->
-
     <header class="home-hero">
 
         <div class="home-container home-hero-grid">
 
-            <!-- Kiri: judul, tombol, dan angka -->
             <div class="home-hero-text">
 
-                <p class="home-eyebrow">CAFE MENU & NUTRITION TRACKER</p>
+                <p class="home-eyebrow">KENALI PILIHANMU</p>
 
                 <h1>
                     Nikmati Rasanya,<br>
@@ -67,7 +58,6 @@
                     <a href="cart.html" class="home-btn home-btn-ghost">Buka Keranjang</a>
                 </div>
 
-                <!-- Angka singkat -->
                 <div class="home-stats">
                     <div class="home-stat">
                         <strong>20</strong>
@@ -96,8 +86,6 @@
 
     <main>
 
-        <!-- CONTOH INFO GIZI (diagram donat dari CSS) -->
-
         <section class="home-nutri">
 
             <div class="home-nutri-text">
@@ -119,7 +107,6 @@
                 <h3>Garang Asem Ayam</h3>
                 <p class="home-nutri-price">Rp32.000 &middot; 1 porsi</p>
 
-                <!-- Lingkaran donat: warnanya diatur di CSS (conic-gradient) -->
                 <div class="home-donut">
                     <div class="home-donut-center">
                         <strong>490</strong>
@@ -127,7 +114,6 @@
                     </div>
                 </div>
 
-                <!-- Keterangan warna donat -->
                 <ul class="home-legend">
                     <li><span class="dot dot-lemak"></span> Lemak <b>38,6 g</b></li>
                     <li><span class="dot dot-protein"></span> Protein <b>25,8 g</b></li>
@@ -138,9 +124,6 @@
 
         </section>
 
-        <!-- PROMO + COUNTDOWN
-             (materi minggu 3: setInterval, Date, Math.floor) -->
-
         <section class="home-promo">
 
             <div class="home-promo-text">
@@ -149,7 +132,6 @@
                 <p>Tunjukkan pesananmu di kasir. Promo berakhir pukul 23.59 malam ini.</p>
             </div>
 
-            <!-- Angka jam, menit, detik diisi oleh JavaScript di bawah -->
             <div id="promo-clock" class="home-clock">
                 <div>
                     <span class="hours">00</span>
@@ -167,8 +149,6 @@
 
         </section>
 
-
-        <!-- KEUNGGULAN -->
 
         <section class="home-section">
 
@@ -200,8 +180,6 @@
         </section>
 
 
-        <!-- CARA PESAN (memakai <ol>, materi minggu 1) -->
-
         <section class="home-section">
 
             <p class="home-eyebrow home-eyebrow-dark">CARA PESAN</p>
@@ -229,8 +207,6 @@
         </section>
 
 
-        <!-- AJAKAN KE HALAMAN MENU -->
-
         <section class="home-cta">
 
             <div class="home-cta-text">
@@ -239,7 +215,6 @@
                 <a href="menu.html" class="home-btn home-btn-lime">Mulai Pilih Menu &rarr;</a>
             </div>
 
-            <!-- Foto kopi, dengan cadangan ilustrasi kalau file foto belum ada -->
             <div class="home-cta-frame">
                 <img
                     src="assets/images/coffee.jpg"
@@ -253,8 +228,6 @@
 
     </main>
 
-
-    <!-- FOOTER -->
 
     <footer class="footer">
 
@@ -273,12 +246,7 @@
     </footer>
 
 
-    <!-- SCRIPT HALAMAN HOME -->
-
     <script>
-        // -- 1. Angka di ikon keranjang --
-        // Keranjang disimpan cart.js di localStorage dengan nama "spicesip-cart".
-        // Kalau belum ada isinya, pakai array kosong [] (fallback seperti minggu 4).
         const cartTersimpan = JSON.parse(localStorage.getItem("spicesip-cart")) || [];
         let jumlahItem = 0;
         cartTersimpan.forEach((item) => {
@@ -286,9 +254,6 @@
         });
         document.getElementById("cart-count").innerHTML = jumlahItem;
 
-
-        // -- 2. Countdown promo (pola countdown.js minggu 3) --
-        // Menghitung sisa waktu dari sekarang sampai batas waktu (endtime)
         function getTimeRemaining(endtime) {
             const total = Date.parse(endtime) - Date.parse(new Date());
             const seconds = Math.floor((total / 1000) % 60);
@@ -297,7 +262,6 @@
             return { total, hours, minutes, seconds };
         }
 
-        // Memperbarui angka di layar setiap 1 detik
         function initializeClock(id, endtime) {
             const clock = document.getElementById(id);
             const hoursSpan = clock.querySelector(".hours");
@@ -320,7 +284,6 @@
             const timeinterval = setInterval(updateClock, 1000);
         }
 
-        // Batas promo: hari ini pukul 23:59:59
         const deadline = new Date();
         deadline.setHours(23, 59, 59, 0);
         initializeClock("promo-clock", deadline);

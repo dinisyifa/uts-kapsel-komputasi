@@ -1,5 +1,4 @@
 
-// Acuan Label Gizi (ALG) BPOM untuk kebutuhan harian
 const BATAS_HARIAN = {
   kalori: 2150,      // kkal
   protein: 60,       // g
@@ -7,10 +6,8 @@ const BATAS_HARIAN = {
   karbohidrat: 325   // g
 };
 
-// Zat gizi yang ada di food.json
 const ZAT_GIZI = ["kalori", "protein", "lemak", "karbohidrat"];
 
-// 1. Mencari menu berdasarkan id
 function cariMenu(id) {
   for (let i = 0; i < foods.length; i++) {
     if (foods[i].id === id) {
@@ -20,7 +17,6 @@ function cariMenu(id) {
   return null;
 }
 
-// 2. Mencari daftar bahan berdasarkan id menu (dari ingredients.json)
 function cariBahan(id) {
   for (let i = 0; i < ingredients.length; i++) {
     if (ingredients[i].menuId === id) {
@@ -30,7 +26,6 @@ function cariBahan(id) {
   return [];
 }
 
-// 3. Mengambil nutrisi 1 menu (object nutrisi di food.json)
 function hitungNutrisi(food) {
   const hasil = {};
   ZAT_GIZI.forEach((zat) => {
@@ -39,8 +34,6 @@ function hitungNutrisi(food) {
   return hasil;
 }
 
-// 4. Label kalori per porsi (if / else if / else)
-//    Acuan: 1 kali makan ≈ 1/3 kebutuhan harian ≈ 700 kkal
 function labelKalori(kalori, kategori = "Makanan") {
   let batasRendah = 300;
   let batasTinggi = 600;
@@ -59,8 +52,6 @@ function labelKalori(kalori, kategori = "Makanan") {
   }
 }
 
-// 5. Total nutrisi isi keranjang
-//    cart = [{ id: 1, qty: 1 }, { id: 6, qty: 2 }]
 function hitungNutrisiCart(cart) {
   const total = {};
   ZAT_GIZI.forEach((zat) => (total[zat] = 0));
@@ -81,7 +72,6 @@ function hitungNutrisiCart(cart) {
   return total;
 }
 
-// 6. Persen terhadap kebutuhan harian
 function persenHarian(total) {
   const persen = {};
   for (let zat in BATAS_HARIAN) {
@@ -90,11 +80,6 @@ function persenHarian(total) {
   return persen;
 }
 
-// =====================================================
-// TAHAP 6 — ringkasan gizi di halaman keranjang
-// Butuh di HTML: <div id="nutri-summary"></div>
-//                <canvas id="nutri-chart"></canvas> (opsional)
-// =====================================================
 let nutriChart = null;
 
 function renderNutrisiCart(cart) {
@@ -129,7 +114,6 @@ function renderNutrisiCart(cart) {
   renderChart(persen);
 }
 
-// Grafik Chart.js (butuh internet). Kalau gagal dimuat, kotaknya disembunyikan.
 function renderChart(persen) {
   const canvas = document.getElementById("nutri-chart");
   if (!canvas) return;
