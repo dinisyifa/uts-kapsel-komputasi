@@ -1,1 +1,159 @@
-hhhhhhhhh
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriCafe - Keranjang</title>
+
+    <!-- Font sama seperti halaman Home -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR (sama dengan halaman lain) -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html" class="active">Keranjang</a>
+        </div>
+
+        <a href="cart.html" class="cart-icon">
+            🛒
+            <span id="cart-count">0</span>
+        </a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- JUDUL HALAMAN -->
+        <section class="menu-header">
+            <p class="eyebrow">KERANJANG</p>
+            <h1>Pesananmu</h1>
+            <p class="menu-subtitle">
+                Cek kembali pesananmu, lihat total gizinya, lalu isi data pemesan.
+            </p>
+        </section>
+
+
+        <!-- PESAN JIKA KERANJANG KOSONG -->
+        <div id="cart-empty" class="cart-card">
+            <p>Keranjang masih kosong. Yuk pilih menu dulu!</p>
+            <a href="menu.html" class="add-button">Lihat Menu</a>
+        </div>
+
+
+        <!-- ISI KERANJANG -->
+        <div id="cart-content">
+
+            <!-- 1. Tabel pesanan (diisi oleh cart.js) -->
+            <div class="cart-card">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Menu</th>
+                                <th>Harga</th>
+                                <th>Jumlah</th>
+                                <th>Subtotal</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="cart-total">
+                    <span>Total</span>
+                    <b id="total-harga">Rp 0</b>
+                </div>
+
+                <button type="button" class="hapus-btn" onclick="kosongkanCart()">Kosongkan keranjang</button>
+            </div>
+
+
+            <!-- 2. Ringkasan gizi (diisi oleh nutrition.js) -->
+            <div class="cart-card">
+                <div id="nutri-summary"></div>
+
+                <!-- Grafik Chart.js. Dipisah dari #nutri-summary
+                     supaya tidak ikut terhapus saat ringkasan diisi ulang -->
+                <div class="chart-container">
+                    <canvas id="nutri-chart"></canvas>
+                </div>
+            </div>
+
+
+            <!-- 3. Form pemesanan (materi minggu 4) -->
+            <div class="cart-card">
+                <form id="order-form" onsubmit="submitOrder(event)">
+                    <h3>Data Pemesan</h3>
+
+                    <label for="nama">Nama</label>
+                    <input type="text" id="nama" maxlength="40" placeholder="Nama kamu" required>
+
+                    <label for="meja">No. meja</label>
+                    <input type="number" id="meja" min="1" placeholder="Contoh: 5" required>
+
+                    <label for="bayar">Metode bayar</label>
+                    <select id="bayar" required>
+                        <option value="" selected disabled>-- Pilih --</option>
+                        <option value="Tunai di kasir">Tunai di kasir</option>
+                        <option value="QRIS">QRIS</option>
+                    </select>
+
+                    <label for="catatan">Catatan (opsional)</label>
+                    <textarea id="catatan" rows="3" maxlength="150" placeholder="Contoh: jangan terlalu pedas"></textarea>
+
+                    <button type="submit" class="add-button">Pesan Sekarang</button>
+                </form>
+            </div>
+
+        </div>
+
+
+        <!-- PESAN SUKSES (diisi oleh submitOrder di cart.js) -->
+        <div id="order-success"></div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+        <p>Proyek UTS Kapita Selekta Komputasi &middot; Program Studi Matematika UNPAR</p>
+        <p class="footer-small">Dibuat oleh Ressy, Agatha, Dini, Lulu, dan Astrid &copy; 2026</p>
+    </footer>
+
+
+    <!-- Notifikasi kecil -->
+    <div id="toast"></div>
+
+
+    <!-- SCRIPT -->
+    <!-- Chart.js untuk grafik (butuh internet; kalau offline grafiknya otomatis disembunyikan) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Data dulu, lalu nutrition.js, terakhir cart.js -->
+    <script src="data/food.json"></script>
+    <script src="data/ingredients.json"></script>
+    <script src="js/nutrition.js"></script>
+    <script src="js/cart.js"></script>
+
+</body>
+</html>

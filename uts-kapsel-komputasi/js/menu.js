@@ -1,247 +1,95 @@
-console.log("=================================");
-console.log("NutriCafe - menu.js");
-console.log("=================================");
+// =====================================================
+// menu.js — menampilkan daftar menu, pencarian, dan filter
+// Data "foods" sudah tersedia dari <script src="data/food.json">
+// (pola questions.json di Quiz App minggu 2)
+// =====================================================
 
-
-console.log("menu.js berhasil dijalankan!");
-
-
-console.log("Jumlah menu:", foods.length);
-console.log("Data foods:", foods);
-console.log("Data ingredients:", ingredients);
-
-
-
+let kategoriAktif = "Semua";
 
 const menuList = document.getElementById("menu-list");
 const searchInput = document.getElementById("search");
 const filterButtons = document.querySelectorAll(".filter-btn");
-const menuEmpty = document.getElementById("menu-empty");
 
 
+// Membuat HTML satu kartu menu (template literal)
+function buatKartuMenu(food) {
+    const label = labelKalori(food.nutrisi.kalori, food.kategori); // dari nutrition.js
+    const bahan = cariBahan(food.id);                              // dari nutrition.js
 
-
-
-
-function cariBahan(menuId) {
-    const dataBahan = ingredients.find(
-        item => item.menuId === menuId
-    );
-    if (!dataBahan) {
-        return [];
-    }
-    return dataBahan.bahan;
-}
-
-
-
-
-function formatNutrisi(food) {
     return `
-        <div class="nutrition-item">
-            <span class="nutrition-icon calories">🔥</span>
-            <div>
-                <strong>${food.nutrisi.kalori}</strong>
-                <small>kkal</small>
+        <article class="menu-card">
+
+            <span class="menu-category">${food.kategori}</span>
+            <span class="nutri-label ${label.kelas}">${label.teks}</span>
+
+            <h2>${food.nama}</h2>
+
+            <p class="menu-price">${formatRupiah(food.harga)}</p>
+
+            <p class="menu-description">${food.deskripsi}</p>
+
+            <p class="menu-portion"><strong>Porsi:</strong> ${food.porsi}</p>
+
+            <div class="nutrition">
+                <h3>Informasi Nutrisi</h3>
+                <p>Kalori: ${food.nutrisi.kalori} kkal</p>
+                <p>Protein: ${food.nutrisi.protein} g</p>
+                <p>Lemak: ${food.nutrisi.lemak} g</p>
+                <p>Karbohidrat: ${food.nutrisi.karbohidrat} g</p>
             </div>
-        </div>
 
+            <p class="menu-bahan"><strong>Bahan:</strong> ${bahan.join(", ")}</p>
 
-        <div class="nutrition-item">
-            <span class="nutrition-icon protein">💪</span>
-            <div>
-                <strong>${food.nutrisi.protein} g</strong>
-                <small>protein</small>
-            </div>
-        </div>
+            <button class="add-button" type="button" onclick="tambahKeCart(${food.id})">
+                + Tambah ke Keranjang
+            </button>
 
-
-        <div class="nutrition-item">
-            <span class="nutrition-icon fat">🥑</span>
-            <div>
-                <strong>${food.nutrisi.lemak} g</strong>
-                <small>lemak</small>
-            </div>
-        </div>
-
-
-        <div class="nutrition-item">
-            <span class="nutrition-icon carbs">⚡</span>
-            <div>
-                <strong>${food.nutrisi.karbohidrat} g</strong>
-                <small>karbo</small>
-            </div>
-        </div>
+        </article>
     `;
 }
 
 
+// Menampilkan menu sesuai kata kunci pencarian dan kategori
+function tampilkanMenu() {
+    const kataKunci = searchInput.value.toLowerCase().trim();
 
+    // filter: ambil menu yang cocok nama DAN kategorinya
+    const menuTerfilter = foods.filter((food) => {
+        const cocokNama = food.nama.toLowerCase().includes(kataKunci);
+        const cocokKategori = kategoriAktif === "Semua" || food.kategori === kategoriAktif;
+        return cocokNama && cocokKategori;
+    });
 
-function tampilHarga(angka) {
-    if (typeof formatRupiah === "function") {
-        return formatRupiah(angka);
-    }
-    return "Rp" + angka.toLocaleString("id-ID");
-}
-
-
-
-
-function renderMenu(list) {
-    console.log("Render menu:", list);
-    if (list.length === 0) {
+    // Tidak ada menu yang cocok
+    if (menuTerfilter.length === 0) {
         menuList.innerHTML = "";
-        menuEmpty.classList.add("show");
+        menuEmpty.style.display = "block";
         return;
     }
-    menuEmpty.classList.remove("show");
-    menuList.innerHTML = list.map(food => {
-        const bahan = cariBahan(food.id);
-        const daftarBahan = bahan.length > 0
-            ? bahan.map(item => `
-                <li>${item}</li>
-            `).join("")
-            : "<li>Informasi bahan belum tersedia</li>";
-        return `
-            <article class="menu-card">
-                <!-- Category -->
-                <div class="card-top">
-                    <span class="category-badge">
-                        ${food.kategori}
-                    </span>
-                </div>
-                <!-- Menu Information -->
-                <div class="menu-card-body">
-                    <h2 class="menu-name">
-                        ${food.nama}
-                    </h2>
-                    <p class="menu-description">
-                        ${food.deskripsi}
-                    </p>
-                    <!-- Nutrition -->
-                    <div class="nutrition-grid">
-                        ${formatNutrisi(food)}
-                    </div>
-                    <!-- Ingredients -->
-                    <details class="ingredients">
-                        <summary>
-                            Lihat bahan
-                        </summary>
-                        <ul>
-                            ${daftarBahan}
-                        </ul>
-                    </details>
-                    <!-- Bottom -->
-                    <div class="card-bottom">
-                        <div class="price-info">
-                            <span class="price">
-                                ${tampilHarga(food.harga)}
-                            </span>
-                            <span class="serving">
-                                / ${food.porsi} porsi
-                            </span>
-                        </div>
-                        <button
-                            class="btn-add"
-                            onclick="handleTambah(${food.id})"
-                        >
-                            + Tambah
-                        </button>
-                    </div>
-                </div>
-            </article>
-        `;
-    }).join("");
+
+    menuEmpty.style.display = "none";
+
+    // map: ubah tiap menu menjadi HTML kartu, lalu gabung dengan join
+    menuList.innerHTML = menuTerfilter.map(buatKartuMenu).join("");
 }
 
 
+// Pencarian: jalan setiap kali pengguna mengetik
+searchInput.addEventListener("input", tampilkanMenu);
 
+// Filter kategori: tombol Semua / Makanan / Minuman
+filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        kategoriAktif = button.dataset.kategori;
 
-
-
-function handleTambah(id) {
-    const food = foods.find(
-        item => item.id === id
-    );
-    if (!food) {
-        console.error("Menu tidak ditemukan:", id);
-        return;
-    }
-    console.log("Mengirim menu ke cart.js:", food.nama);
-    if (typeof tambahKeCart === "function") {
-        tambahKeCart(id);
-    } else {
-        console.error("tambahKeCart() belum tersedia.");
-    }
-}
-
-
-
-
-filterButtons.forEach(button => {
-    button.addEventListener("click", function () {
-        filterButtons.forEach(btn => {
+        filterButtons.forEach((btn) => {
             btn.classList.remove("active");
         });
-        this.classList.add("active");
-        const kategori =
-            this.dataset.kategori;
-        console.log(
-            "Filter kategori:",
-            kategori
-        );
-        if (kategori === "Semua") {
-            renderMenu(foods);
-            return;
-        }
-        const hasilFilter = foods.filter(
-            food => food.kategori === kategori
-        );
-        renderMenu(hasilFilter);
+        button.classList.add("active");
+
+        tampilkanMenu();
     });
 });
 
-
-
-
-searchInput.addEventListener("input", function () {
-    const keyword =
-        this.value.toLowerCase().trim();
-    console.log(
-        "Pencarian:",
-        keyword
-    );
-    const hasilSearch = foods.filter(food => {
-        const nama =
-            food.nama.toLowerCase();
-        const deskripsi =
-            food.deskripsi.toLowerCase();
-        return (
-            nama.includes(keyword) ||
-            deskripsi.includes(keyword)
-        );
-    });
-    renderMenu(hasilSearch);
-});
-
-
-
-
-
-
-renderMenu(foods);
-
-
-console.log("Menu pertama:", foods[0]);
-console.log(
-    "Nutrisi menu pertama:",
-    foods[0].nutrisi
-);
-
-
-console.log(
-    "Bahan menu pertama:",
-    cariBahan(foods[0].id)
-);
-
+// Jalankan saat halaman dibuka
+tampilkanMenu();
