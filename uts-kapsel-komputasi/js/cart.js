@@ -1,5 +1,5 @@
 function ambilCart() {
-    const dataTersimpan = localStorage.getItem("nutricafe-cart");
+    const dataTersimpan = localStorage.getItem("spicesip-cart");
     if (dataTersimpan) {
         return JSON.parse(dataTersimpan);
     } else {
@@ -9,7 +9,7 @@ function ambilCart() {
 
 // Simpan keranjang ke LocalStorage
 function simpanCart(cart) {
-    localStorage.setItem("nutricafe-cart", JSON.stringify(cart));
+    localStorage.setItem("spicesip-cart", JSON.stringify(cart));
 }
 
 function tambahKeCart(id) {
@@ -176,13 +176,13 @@ function renderCart() {
     };
 
     //simpan ke riwayat pesanan
-    const riwayatTersimpan = localStorage.getItem("nutricafe-riwayat");
+    const riwayatTersimpan = localStorage.getItem("spicesip-riwayat");
     let riwayat = [];
     if (riwayatTersimpan) {
         riwayat = JSON.parse(riwayatTersimpan);
     }
     riwayat.push(pesanan);
-    localStorage.setItem("nutricafe-riwayat", JSON.stringify(riwayat));
+    localStorage.setItem("spicesip-riwayat", JSON.stringify(riwayat));
 
     //menampilkan pesan "sukses"
     document.getElementById("order-success").innerHTML =
