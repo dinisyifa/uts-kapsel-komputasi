@@ -23,14 +23,14 @@
 
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="test-menu.html" class="active">Menu</a>
-            <a href="test-cart.html">Keranjang</a>
+            <a href="menu.html" class="active">Menu</a>
+             <a href="cart.html">Keranjang</a>
         </div>
 
-        <div class="cart-icon">
-            🛒
-            <span id="cart-count">0</span>
-        </div>
+        <a href="cart.html" class="cart-icon">
+             🛒
+             <span id="cart-count">0</span>
+        </a>
 
     </nav>
 
@@ -114,11 +114,7 @@
              MENU LIST
         =============================== -->
 
-        <section id="menu-list">
-
-            <!-- Card menu akan dibuat oleh menu.js -->
-
-        </section>
+        <section id="menu-list" class="menu-list">
 
 
         <!-- ==============================
@@ -145,8 +141,12 @@
 
 
 
+    <div id="toast"></div>
+
     <script src="data/food.json"></script>
     <script src="data/ingredients.json"></script>
+    <script src="js/nutrition.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/menu.js"></script>
 
 </body>
