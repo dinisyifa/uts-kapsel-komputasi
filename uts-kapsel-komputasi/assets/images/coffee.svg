@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Ilustrasi secangkir kopi latte dari atas">
+  <defs>
+    <radialGradient id="cangkir" cx="40%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e7e0cf"/>
+    </radialGradient>
+    <radialGradient id="kopi" cx="50%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#c98d58"/>
+      <stop offset="1" stop-color="#7a4a26"/>
+    </radialGradient>
+    <filter id="bayangan2" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#0b1a10" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Piring kecil -->
+  <g filter="url(#bayangan2)">
+    <circle cx="200" cy="200" r="170" fill="url(#cangkir)"/>
+  </g>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#e2dac7" stroke-width="3"/>
+
+  <!-- Gagang cangkir -->
+  <rect x="318" y="182" width="62" height="36" rx="18" fill="url(#cangkir)" stroke="#ddd4c0" stroke-width="3"/>
+
+  <!-- Cangkir -->
+  <circle cx="200" cy="200" r="122" fill="url(#cangkir)" stroke="#ddd4c0" stroke-width="3"/>
+  <circle cx="200" cy="200" r="104" fill="url(#kopi)"/>
+
+  <!-- Latte art bentuk daun -->
+  <g fill="#f6e7d2">
+    <path d="M200 120 C 255 150, 255 245, 200 285 C 145 245, 145 150, 200 120 Z"/>
+  </g>
+  <g stroke="#a46a3c" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M200 135 L 200 275"/>
+    <path d="M200 160 C 185 165, 172 172, 165 182"/>
+    <path d="M200 160 C 215 165, 228 172, 235 182"/>
+    <path d="M200 195 C 182 200, 168 210, 160 222"/>
+    <path d="M200 195 C 218 200, 232 210, 240 222"/>
+    <path d="M200 232 C 186 237, 176 245, 170 255"/>
+    <path d="M200 232 C 214 237, 224 245, 230 255"/>
+  </g>
+
+  <!-- Biji kopi -->
+  <g fill="#5b3418">
+    <ellipse cx="60" cy="350" rx="16" ry="11" transform="rotate(-30 60 350)"/>
+    <ellipse cx="92" cy="372" rx="16" ry="11" transform="rotate(20 92 372)"/>
+  </g>
+  <g stroke="#2f1a0b" stroke-width="2" fill="none">
+    <path d="M48 356 C 58 348, 64 352, 72 344"/>
+    <path d="M80 368 C 90 372, 96 370, 104 376"/>
+  </g>
+</svg>
