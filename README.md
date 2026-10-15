@@ -1,11 +1,11 @@
-# NutriCafe
+# Spice & Sip
 
 Website menu kafe sehat yang menampilkan informasi gizi setiap menu dan menghitung total harga serta total gizi pesanan.
 Proyek UTS mata kuliah Kapita Selekta Komputasi, Program Studi Matematika UNPAR.
 
 ## Fitur
 
-- **Home**: pengenalan NutriCafe, promo dengan countdown, keunggulan, dan cara pesan.
+- **Home**: pengenalan Spice & Sip, promo dengan countdown, keunggulan, dan cara pesan.
 - **Menu**: daftar makanan dan minuman lengkap dengan kalori, protein, lemak, karbohidrat, dan bahan; filter kategori dan pencarian.
 - **Keranjang**: tambah/kurangi/hapus item, total harga, ringkasan gizi pesanan, dan form pemesanan.
 - Isi keranjang tersimpan di `localStorage`, jadi tidak hilang saat pindah halaman.

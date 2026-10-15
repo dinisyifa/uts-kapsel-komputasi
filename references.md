@@ -1,6 +1,6 @@
-# Referensi Data NutriCafe
+# Referensi Data Spice & Sip
 
-Nilai gizi di NutriCafe adalah **estimasi untuk keperluan simulasi**, bukan saran gizi atau nilai yang terjamin akurat 100%.
+Nilai gizi di Spice & Sip adalah **estimasi untuk keperluan simulasi**, bukan saran gizi atau nilai yang terjamin akurat 100%.
 
 ## Makanan (menu id 1–10)
 
