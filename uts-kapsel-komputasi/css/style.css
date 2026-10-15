@@ -1,6 +1,3 @@
-/* =========================
-   PENGATURAN DASAR
-========================= */
 
 * {
     margin: 0;
@@ -159,7 +156,6 @@ main {
     background: var(--hijau-tua);
 }
 
-/* Notifikasi kecil di bawah layar (diatur cart.js) */
 #toast {
     display: none;
     position: fixed;
@@ -174,10 +170,6 @@ main {
     font-size: 14px;
 }
 
-
-/* =========================================================
-   3. HALAMAN MENU - Ressy
-   ========================================================= */
 
 /* -- Pencarian dan filter -- */
 .menu-tools {
@@ -348,10 +340,6 @@ main {
 }
 
 
-/* =========================================================
-   4. KERANJANG - Agatha  &  NUTRISI - Dini
-   ========================================================= */
-
 .cart-card {
     margin-bottom: 20px;
     padding: 24px;
@@ -502,8 +490,7 @@ main {
     border-radius: 999px;
 }
 
-/* Warna: hijau = rendah, kuning = sedang, merah = tinggi
-   (dipakai di bar keranjang dan label kalori di kartu menu) */
+/* Warna: hijau = rendah, kuning = sedang, merah = tinggi */
 .nutri-bar-isi.nutri-rendah { background: #6aa84f; }
 .nutri-bar-isi.nutri-sedang { background: #e9a948; }
 .nutri-bar-isi.nutri-tinggi { background: #d9534f; }
@@ -604,12 +591,6 @@ main {
 }
 
 
-
-/* =========================================================
-   5. RESPONSIF - Astrid
-   Taruh bagian ini di PALING BAWAH style.css,
-   supaya aturannya menimpa aturan di atasnya saat layar kecil.
-   ========================================================= */
 
 /* Tablet (lebar layar 900px ke bawah) */
 @media (max-width: 900px) {
