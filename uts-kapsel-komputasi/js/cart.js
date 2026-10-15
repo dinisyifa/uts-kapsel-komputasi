@@ -7,7 +7,6 @@ function ambilCart() {
     }
 }
 
-// Simpan keranjang ke LocalStorage
 function simpanCart(cart) {
     localStorage.setItem("spicesip-cart", JSON.stringify(cart));
 }
@@ -33,7 +32,6 @@ function tambahKeCart(id) {
     tampilkanToast(food.nama + " masuk keranjang");
 }
 
-//Tombol + (perubahan=1) & tombol - (perubahan= -1)
 function ubahQty(id,perubahan) {
     const cart = ambilCart();
     for (let i = 0; i < cart.length; i++) {
@@ -47,8 +45,6 @@ function ubahQty(id,perubahan) {
     renderCart();
 }
 
-
-// Tombol Hapus
 function hapusItem(id) {
     const cart = ambilCart();
     const cartBaru = cart.filter((item) => item.id !== id);
@@ -56,18 +52,15 @@ function hapusItem(id) {
     renderCart();
 }
 
-//Tombol Kosongkan
 function kosongkanCart() {
     simpanCart([]);
     renderCart();
 }
 
-// Format uang menjadi rupiah
 function formatRupiah(angka) {
     return "Rp " + angka.toLocaleString("id-ID");
 }
 
-// TOTAL = jumlah (harga x qty) semua item
 function hitungTotal(cart) {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -77,7 +70,6 @@ function hitungTotal(cart) {
     return total;
 }
 
-// Angka di ikon keranjang = total semua qty
 function updateCartCount() {
     const badge = document.getElementById("cart-count");
     if (!badge) return; //halaman ini gaada ikon keranjang
@@ -90,7 +82,6 @@ function updateCartCount() {
     badge.innerHTML = jumlah;
 }
 
-//Notif kecil, bakal ilang setelah 2 detik
 function tampilkanToast(pesan) {
     const toast = document.getElementById("toast");
     if (!toast) return;
@@ -101,7 +92,7 @@ function tampilkanToast(pesan) {
         toast.style.display = "none";
     }, 2000);
 }
-// Tampilkan isi keranjang di tabel
+
 function renderCart() {
     updateCartCount();
     const cartBody = document.getElementById("cart-body");
@@ -120,7 +111,7 @@ function renderCart() {
     cartEmpty.style.display = "none";
     cartContent.style.display = "block";
 
-    // satu baris tabel untuk tiap item
+
     const output = [];
     cart.forEach((item)=> {
         const food = foods.find((f) => f.id === item.id);
@@ -143,14 +134,13 @@ function renderCart() {
 
     document.getElementById("total-harga").innerHTML = formatRupiah(hitungTotal(cart));
 
-    //Ringkasan gizi
     if (typeof renderNutrisiCart === "function") {
         renderNutrisiCart(cart);
     }
  }
- //Memanggil saat form dikirim
+
  function submitOrder(event) {
-    event.preventDefault(); //mencegah halaman ke-reload
+    event.preventDefault(); 
 
     const nama = document.getElementById("nama").value;
     const meja = document.getElementById("meja").value;
@@ -175,7 +165,6 @@ function renderCart() {
         waktu: new Date().toLocaleString("id-ID"),
     };
 
-    //simpan ke riwayat pesanan
     const riwayatTersimpan = localStorage.getItem("spicesip-riwayat");
     let riwayat = [];
     if (riwayatTersimpan) {
@@ -184,13 +173,11 @@ function renderCart() {
     riwayat.push(pesanan);
     localStorage.setItem("spicesip-riwayat", JSON.stringify(riwayat));
 
-    //menampilkan pesan "sukses"
     document.getElementById("order-success").innerHTML =
     `<h3> Pesanan telah masuk!</h3>
     <p> Terima kasih, ${nama}. Pesanan untuk meja ${meja} sedang disiapkan.</p>
     <p>Total: ${formatRupiah(pesanan.total)} · Bayar: ${bayar}</p>`;
 
-    //mengosongkan form dan keranjang setelahnya
     document.getElementById("order-form").reset();
     kosongkanCart();
     document.getElementById("cart-empty").style.display = "none";
