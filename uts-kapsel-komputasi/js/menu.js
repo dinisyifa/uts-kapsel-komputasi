@@ -7,6 +7,7 @@
 let kategoriAktif = "Semua";
 
 const menuList = document.getElementById("menu-list");
+const menuEmpty = document.getElementById("menu-empty");
 const searchInput = document.getElementById("search");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
