@@ -622,11 +622,8 @@ body.home-page .footer .logo {
 
 
 /* =========================================================
-   2-4. MENU, CART, NUTRISI - tim (isi style.css dari branch main)
+   2. DASAR SEMUA HALAMAN
    ========================================================= */
-/* =========================
-   PENGATURAN DASAR
-========================= */
 
 * {
     margin: 0;
@@ -635,300 +632,582 @@ body.home-page .footer .logo {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #FAF8F4;
-    color: #333333;
+    font-family: var(--font-isi);
+    background-color: var(--krem);
+    color: var(--teks);
     line-height: 1.6;
 }
 
-.container {
-    width: 90%;
+button,
+input,
+select,
+textarea {
+    font-family: var(--font-isi);
+}
+
+/* Lebar isi halaman Menu & Keranjang */
+main {
+    width: 86%;
     max-width: 1100px;
     margin: 0 auto;
+    padding-bottom: 60px;
 }
 
-/* =========================
-   Header dan Navigasi
-========================= */
-
-.header {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #E0D8CE;
-}
-
+/* -- Navbar halaman Menu & Keranjang (warnanya sama dengan Home) -- */
 .navbar {
-    min-height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 72px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
+    padding: 0 7%;
+    background: var(--hijau);
 }
 
 .logo {
-    color: #76563C;
+    color: var(--putih);
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--lime);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
     text-decoration: none;
 }
 
-nav {
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--putih);
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 21px;
+    text-decoration: none;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 18px;
+    height: 18px;
     display: flex;
     align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--lime);
+    color: var(--gelap);
+    font-size: 10px;
+    font-weight: 700;
 }
 
-nav a {
-    color: #444444;
-    text-decoration: none;
+/* -- Footer halaman Menu & Keranjang -- */
+.footer {
+    padding: 40px 7%;
+    background: var(--gelap);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
 }
 
-nav a:hover,
-nav a.active {
-    color: #76563C;
-    font-weight: bold;
+.footer .logo {
+    margin-bottom: 8px;
 }
 
-/* =========================
-   JUDUL HALAMAN
-========================= */
-
-.page-heading {
-    padding: 35px 0 25px;
+.footer-small {
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
 }
 
-.page-heading h1 {
-    color: #76563C;
-    font-size: 28px;
-    margin-bottom: 5px;
+/* -- Judul halaman (Menu & Keranjang) -- */
+.menu-header {
+    padding: 48px 0 28px;
 }
 
-.page-heading p {
-    color: #666666;
-    font-size: 15px;
+.eyebrow {
+    margin-bottom: 6px;
+    color: var(--hijau-muda);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-/* =========================
-   PENCARIAN MENU
-========================= */
+.menu-header h1 {
+    margin-bottom: 6px;
+    color: var(--hijau);
+    font-family: var(--font-judul);
+    font-size: 40px;
+    line-height: 1.2;
+}
 
-.menu-controls {
-    margin-bottom: 25px;
+.menu-subtitle {
+    color: var(--teks-abu);
+}
+
+/* Tombol hijau (dipakai di kartu menu, form, dan "Lihat Menu") */
+.add-button {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 10px;
+    background: var(--hijau);
+    color: var(--putih);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background: var(--hijau-tua);
+}
+
+/* Notifikasi kecil di bawah layar (diatur cart.js) */
+#toast {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: var(--gelap);
+    color: var(--putih);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   3. HALAMAN MENU - Ressy
+   ========================================================= */
+
+/* -- Pencarian dan filter -- */
+.menu-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 14px;
+    border: 1px solid var(--garis);
+    border-radius: 10px;
+    background: var(--putih);
+}
+
+.search-icon {
+    color: var(--teks-abu);
+    font-size: 18px;
 }
 
 #search {
     width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 15px;
-    border: 1px solid #D8D0C5;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: #333333;
+    padding: 12px 0;
+    border: none;
+    outline: none;
+    background: transparent;
     font-size: 14px;
 }
 
-#search:focus {
-    outline: 2px solid #76563C;
-}
-
-/* =========================
-   FILTER KATEGORI
-========================= */
-
-.filter-list {
+.filter-buttons {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 8px;
 }
 
 .filter-btn {
-    padding: 8px 16px;
-    border: 1px solid #76563C;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: #76563C;
+    padding: 8px 18px;
+    border: 1px solid var(--hijau);
+    border-radius: 999px;
+    background: var(--putih);
+    color: var(--hijau);
     font-size: 14px;
     cursor: pointer;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: #76563C;
-    color: #FFFFFF;
+    background: var(--hijau);
+    color: var(--putih);
 }
 
-/* =========================
-   DAFTAR MENU
-========================= */
-
+/* -- Daftar menu: grid 3 kolom -- */
 .menu-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding-bottom: 45px;
 }
 
 .menu-card {
-    background-color: #FFFFFF;
-    border: 1px solid #E0D8CE;
-    border-radius: 5px;
-    padding: 20px;
-}
-
-.menu-card h2 {
-    color: #76563C;
-    font-size: 19px;
-    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    border: 1px solid var(--garis);
+    border-radius: 16px;
+    background: var(--putih);
 }
 
 .menu-category {
-    display: inline-block;
-    background-color: #EDE3D7;
-    color: #76563C;
-    padding: 3px 8px;
-    border-radius: 3px;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--hijau-pucat);
+    color: var(--hijau);
     font-size: 12px;
-    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.menu-card h2 {
+    margin-bottom: 4px;
+    color: var(--teks);
+    font-family: var(--font-judul);
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.menu-price {
+    margin-bottom: 10px;
+    color: var(--hijau);
+    font-weight: 700;
 }
 
 .menu-description {
-    color: #666666;
-    font-size: 14px;
     margin-bottom: 10px;
+    color: var(--teks-abu);
+    font-size: 14px;
 }
 
 .menu-portion {
-    color: #444444;
+    margin-bottom: 14px;
     font-size: 13px;
-    margin-bottom: 15px;
 }
 
-/* =========================
-   INFORMASI NUTRISI
-========================= */
-
 .nutrition {
-    border-top: 1px solid #E0D8CE;
-    padding-top: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--hijau-pucat);
 }
 
 .nutrition h3 {
-    color: #444444;
-    font-size: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    font-size: 14px;
 }
 
 .nutrition p {
-    color: #555555;
-    font-size: 13px;
-    margin-bottom: 3px;
-}
-
-/* =========================
-   TOMBOL MENU
-========================= */
-
-.add-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #76563C;
-    color: #FFFFFF;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.add-button:hover {
-    background-color: #5D422D;
-}
-
-/* Tombol belum diaktifkan */
-.add-button:disabled {
-    background-color: #B8A99A;
-    color: #FFFFFF;
-    cursor: not-allowed;
-}
-
-/* =========================
-   PESAN KOSONG / ERROR
-========================= */
-
-.empty-message {
-    color: #666666;
-    padding: 20px 0;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-    background-color: #EDE3D7;
-    padding: 20px 0;
-    text-align: center;
-    color: #66584A;
     font-size: 13px;
 }
 
-/* =========================
-   TAMPILAN TABLET
-========================= */
-
-@media (max-width: 850px) {
-    .menu-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.menu-bahan {
+    margin-bottom: 16px;
+    color: var(--teks-abu);
+    font-size: 12px;
 }
 
-/* =========================
-   TAMPILAN HP
-========================= */
-
-@media (max-width: 550px) {
-    .navbar {
-        padding: 15px 0;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    nav {
-        gap: 15px;
-    }
-
-    .menu-list {
-        grid-template-columns: 1fr;
-    }
-
-    .page-heading h1 {
-        font-size: 24px;
-    }
+/* Tombol selalu di bagian bawah kartu */
+.menu-card .add-button {
+    margin-top: auto;
 }
-
-
 
 /* Pesan ketika menu tidak ditemukan */
 .menu-empty {
     display: none;
-    padding: 30px 0;
+    padding: 40px 0;
     text-align: center;
+    color: var(--teks-abu);
 }
 
 .empty-icon {
-    font-size: 28px;
-    margin-bottom: 8px;
+    font-size: 32px;
 }
 
 .menu-empty h3 {
-    margin-bottom: 5px;
-    color: #333333;
+    color: var(--teks);
 }
 
-.menu-empty p {
-    color: #666666;
+
+/* =========================================================
+   4. KERANJANG - Agatha  &  NUTRISI - Dini
+   ========================================================= */
+
+.cart-card {
+    margin-bottom: 20px;
+    padding: 24px;
+    border: 1px solid var(--garis);
+    border-radius: 16px;
+    background: var(--putih);
 }
+
+.cart-card h3 {
+    margin-bottom: 14px;
+    color: var(--hijau);
+    font-family: var(--font-judul);
+    font-size: 22px;
+}
+
+/* Keranjang kosong */
+#cart-empty {
+    text-align: center;
+}
+
+#cart-empty p {
+    margin-bottom: 16px;
+    color: var(--teks-abu);
+}
+
+#cart-empty .add-button {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* -- Tabel pesanan -- */
+.cart-table-wrap {
+    overflow-x: auto;   /* tabel bisa digeser di HP */
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--garis);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.cart-table th {
+    color: var(--teks-abu);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    margin: 0 6px;
+    border: 1px solid var(--hijau);
+    border-radius: 50%;
+    background: var(--putih);
+    color: var(--hijau);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.qty-btn:hover {
+    background: var(--hijau);
+    color: var(--putih);
+}
+
+.hapus-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #fbeaea;
+    color: #c0392b;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.hapus-btn:hover {
+    background: #c0392b;
+    color: var(--putih);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+    font-size: 18px;
+}
+
+.cart-total b {
+    color: var(--hijau);
+    font-size: 24px;
+}
+
+/* -- Ringkasan gizi (dibuat oleh nutrition.js) -- */
+.nutri-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.nutri-item {
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--hijau-pucat);
+    color: var(--teks-abu);
+    font-size: 13px;
+    text-align: center;
+}
+
+.nutri-item span {
+    display: block;
+    color: var(--hijau);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#nutri-summary h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.nutri-bar-baris {
+    margin-bottom: 10px;
+}
+
+.nutri-bar-label {
+    font-size: 13px;
+}
+
+.nutri-bar {
+    height: 10px;
+    border-radius: 999px;
+    background: var(--garis);
+    overflow: hidden;
+}
+
+.nutri-bar-isi {
+    height: 100%;
+    border-radius: 999px;
+}
+
+/* Warna: hijau = rendah, kuning = sedang, merah = tinggi
+   (dipakai di bar keranjang dan label kalori di kartu menu) */
+.nutri-bar-isi.nutri-rendah { background: #6aa84f; }
+.nutri-bar-isi.nutri-sedang { background: #e9a948; }
+.nutri-bar-isi.nutri-tinggi { background: #d9534f; }
+
+.nutri-label {
+    align-self: flex-start;
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nutri-label.nutri-rendah { background: #e6f2df; color: #3d7a2a; }
+.nutri-label.nutri-sedang { background: #fcf0dc; color: #a8670f; }
+.nutri-label.nutri-tinggi { background: #fbe4e3; color: #b0302b; }
+
+/* Grafik Chart.js */
+.chart-container {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+/* -- Form pemesanan -- */
+#order-form label {
+    display: block;
+    margin: 12px 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#order-form input,
+#order-form select,
+#order-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--garis);
+    border-radius: 10px;
+    background: var(--krem);
+    font-size: 14px;
+}
+
+#order-form input:focus,
+#order-form select:focus,
+#order-form textarea:focus {
+    outline: 2px solid var(--hijau-muda);
+}
+
+#order-form .add-button {
+    margin-top: 20px;
+}
+
+/* Pesan sukses (kosong = tidak tampil) */
+#order-success:empty {
+    display: none;
+}
+
+#order-success {
+    padding: 28px;
+    border-radius: 16px;
+    background: var(--hijau-pucat);
+    text-align: center;
+}
+
+#order-success h3 {
+    margin-bottom: 8px;
+    color: var(--hijau);
+    font-family: var(--font-judul);
+    font-size: 26px;
+}
+
+/* -- Responsif Menu & Keranjang -- */
+@media (max-width: 900px) {
+    .menu-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nutri-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 5%;
+    }
+    .nav-links {
+        gap: 16px;
+    }
+    main {
+        width: 90%;
+    }
+    .menu-header h1 {
+        font-size: 30px;
+    }
+    .menu-list {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 /* =========================================================

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriCafe - Menu</title>
+
+    <!-- Font sama seperti halaman Home -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="cart.html">Keranjang</a>
+        </div>
+
+        <a href="cart.html" class="cart-icon">
+            🛒
+            <span id="cart-count">0</span>
+        </a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- JUDUL HALAMAN -->
+        <section class="menu-header">
+            <p class="eyebrow">NUTRISI & RASA</p>
+            <h1>Temukan Menu Favoritmu</h1>
+            <p class="menu-subtitle">
+                Pilih makanan dan minuman favoritmu, lalu lihat
+                informasi nutrisinya sebelum memesan.
+            </p>
+        </section>
+
+
+        <!-- PENCARIAN DAN FILTER -->
+        <section class="menu-tools">
+
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" id="search" placeholder="Cari menu...">
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-kategori="Semua">Semua</button>
+                <button class="filter-btn" data-kategori="Makanan">Makanan</button>
+                <button class="filter-btn" data-kategori="Minuman">Minuman</button>
+            </div>
+
+        </section>
+
+
+        <!-- DAFTAR MENU (kartu dibuat oleh menu.js) -->
+        <section id="menu-list" class="menu-list"></section>
+
+
+        <!-- PESAN JIKA MENU TIDAK DITEMUKAN -->
+        <div id="menu-empty" class="menu-empty">
+            <div class="empty-icon">🍽️</div>
+            <h3>Menu tidak ditemukan</h3>
+            <p>Coba gunakan kata kunci pencarian yang lain.</p>
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="logo">
+            Nutri<span>Cafe</span>
+        </div>
+        <p>Proyek UTS Kapita Selekta Komputasi &middot; Program Studi Matematika UNPAR</p>
+        <p class="footer-small">Dibuat oleh Ressy, Agatha, Dini, Lulu, dan Astrid &copy; 2026</p>
+    </footer>
+
+
+    <!-- Notifikasi kecil saat menu masuk keranjang -->
+    <div id="toast"></div>
+
+
+    <!-- SCRIPT: data dulu, lalu fungsi, terakhir menu.js -->
+    <script src="data/food.json"></script>
+    <script src="data/ingredients.json"></script>
+    <script src="js/nutrition.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/menu.js"></script>
+
+</body>
+</html>
