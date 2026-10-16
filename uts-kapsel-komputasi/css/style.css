@@ -1,10 +1,635 @@
+/* 1. GLOBAL - Astrid
+   Berisi variabel warna (:root) yang dipakai semua orang,
+   footer bersama, dan tampilan halaman Home. */
+
+/* -- Variabel warna (dipakai lewat var(--nama)) -- */
+:root {
+    --hijau: #3e5a43;        /* warna utama: tombol, logo, harga */
+    --hijau-tua: #304833;    /* tombol saat di-hover */
+    --hijau-muda: #91a88f;   /* aksen: label kecil, logo "Cafe" */
+    --hijau-pucat: #eef3ec;  /* latar badge dan ikon */
+    --lime: #c3dc4f;         /* aksen terang di Home (tombol, angka) */
+    --gelap: #2f4a37;        /* hijau tua: hero, CTA, footer */
+    --gelap-2: #3e5a43;      /* hijau kedua (kartu promo) */
+    --krem: #faf9f6;         /* latar halaman */
+    --putih: #ffffff;
+    --teks: #30352f;         /* teks utama */
+    --teks-abu: #7c817a;     /* teks keterangan */
+    --garis: #e7e7e2;        /* garis tepi kartu */
+    --font-judul: "Playfair Display", Georgia, serif;
+    --font-isi: "Plus Jakarta Sans", Arial, sans-serif;
+}
+
+/* -- Footer halaman Home -- */
+body.home-page .footer {
+    padding: 40px 7%;
+    background: var(--gelap);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+body.home-page .footer .logo {
+    margin-bottom: 8px;
+    color: var(--putih);
+}
+
+body.home-page .footer .logo span {
+    color: var(--lime);
+}
+
+body.home-page .footer-small {
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* -- HOME: font khusus halaman Home -- */
+body.home-page,
+body.home-page button {
+    font-family: var(--font-isi);
+}
+
+/* -- HOME: lebar isi halaman --
+   Diawali body.home-page supaya tidak tertimpa CSS halaman lain */
+body.home-page main {
+    width: 86%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* -- HOME: agar isi hero sejajar dengan isi halaman -- */
+.home-container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* -- HOME: navbar gelap -- */
+.navbar.home-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: var(--hijau);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-navbar .logo,
+body.home-page .footer .logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.home-navbar .logo {
+    color: var(--putih);
+}
+
+.home-navbar .nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.home-navbar .nav-links a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.home-navbar .logo span {
+    color: var(--lime);
+}
+
+.home-navbar .nav-links a {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.home-navbar .nav-links a:hover,
+.home-navbar .nav-links a.active {
+    color: var(--putih);
+}
+
+.home-navbar .cart-icon {
+    position: relative;
+    font-size: 21px;
+}
+
+.home-navbar #cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--lime);
+    color: var(--gelap);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.home-cart-link {
+    text-decoration: none;
+}
+
+/* -- HOME: hero gelap -- */
+/* Latar hero berlapis (lapisan pertama paling atas):
+   1. gradasi hijau dari kiri, makin ke kanan makin transparan
+      supaya teks terbaca dan foto di kanan tetap terlihat
+   2. foto makanan assets/images/hero.jpg (memenuhi hero)
+   3. cadangan: ilustrasi mangkuk, terlihat kalau hero.jpg belum ada
+   4. warna dasar hijau */
+.home-hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    color: var(--putih);
+    background:
+        linear-gradient(90deg,
+            rgba(47, 74, 55, 1) 0%,
+            rgba(47, 74, 55, 0.92) 35%,
+            rgba(47, 74, 55, 0.35) 65%,
+            rgba(47, 74, 55, 0.05) 100%),
+        url("../assets/images/hero.jpg") right center / cover no-repeat,
+        url("../assets/images/hero-bowl.svg") right 6% center / 520px no-repeat,
+        linear-gradient(120deg, #3e5a43 0%, #557a5c 100%);
+}
+
+/* Teks hero cukup selebar setengah layar */
+.home-hero-grid {
+    width: 86%;
+}
+
+.home-hero-text {
+    max-width: 600px;
+}
+
+.home-eyebrow {
+    margin-bottom: 14px;
+    color: var(--lime);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.home-hero-text h1 {
+    margin-bottom: 22px;
+    font-family: var(--font-judul);
+    font-size: 66px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+}
+
+/* Baris kedua judul: miring dan berwarna lime */
+.home-hero-text h1 span {
+    color: var(--lime);
+    font-style: italic;
+}
+
+.home-hero-subtitle {
+    max-width: 520px;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+}
+
+.home-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 48px;
+}
+
+/* -- HOME: tombol -- */
+.home-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.home-btn-lime {
+    background: var(--lime);
+    color: var(--gelap);
+}
+
+.home-btn-lime:hover {
+    background: #d3ea68;
+    transform: translateY(-2px);
+}
+
+.home-btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--putih);
+}
+
+.home-btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* -- HOME: angka singkat di hero -- */
+.home-stats {
+    display: flex;
+    gap: 0;
+}
+
+.home-stat {
+    padding: 0 26px;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.home-stat:first-child {
+    padding-left: 0;
+    border-left: none;
+}
+
+.home-stat strong {
+    display: block;
+    color: var(--lime);
+    font-family: var(--font-judul);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.home-stat span {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+/* -- HOME: foto bulat (dipakai di bagian ajakan) -- */
+/* Foto dipotong bulat dan mengisi bingkai (object-fit: cover) */
+.home-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Kalau yang tampil ilustrasi cadangan, jangan dipotong */
+.home-photo.is-ilustrasi {
+    object-fit: contain;
+    border-radius: 0;
+}
+
+/* -- HOME: contoh info gizi -- */
+.home-nutri {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    margin: 90px 0 80px;
+}
+
+.home-nutri-text h2 {
+    margin-bottom: 16px;
+    color: var(--teks);
+    font-family: var(--font-judul);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.home-nutri-text p {
+    margin-bottom: 16px;
+    color: var(--teks-abu);
+}
+
+/* Kotak rumus */
+.home-rumus {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--hijau-pucat);
+    border-left: 4px solid var(--hijau);
+    border-radius: 8px;
+    color: var(--hijau) !important;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.home-btn-green {
+    margin-top: 8px;
+    background: var(--hijau);
+    color: var(--putih);
+}
+
+.home-btn-green:hover {
+    background: var(--hijau-tua);
+    transform: translateY(-2px);
+}
+
+/* Kartu gizi + diagram donat */
+.home-nutri-card {
+    max-width: 420px;
+    margin-left: auto;
+    padding: 30px;
+    background: var(--putih);
+    border: 1px solid var(--garis);
+    border-radius: 22px;
+    box-shadow: 0 24px 50px rgba(47, 74, 55, 0.12);
+}
+
+.home-nutri-label {
+    color: var(--hijau-muda);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.home-nutri-card h3 {
+    margin: 6px 0 2px;
+    color: var(--teks);
+    font-family: var(--font-judul);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.home-nutri-price {
+    margin-bottom: 24px;
+    color: var(--teks-abu);
+    font-size: 13px;
+}
+
+/* Donat = lingkaran dengan conic-gradient.
+   Persentase = kalori tiap zat / total kalori:
+   lemak 38,64 x 9 = 348 kkal -> 70%
+   protein 25,76 x 4 = 103 kkal -> 21%
+   karbo 11,43 x 4 = 46 kkal -> 9% */
+.home-donut {
+    width: 190px;
+    height: 190px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: conic-gradient(
+        #9fbf3b 0% 70%,
+        var(--hijau) 70% 91%,
+        #e9a948 91% 100%
+    );
+}
+
+/* Lubang di tengah donat */
+.home-donut-center {
+    width: 128px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--putih);
+    color: var(--teks);
+}
+
+.home-donut-center strong {
+    font-family: var(--font-judul);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.home-donut-center small {
+    color: var(--teks-abu);
+    font-size: 12px;
+}
+
+.home-legend {
+    list-style: none;
+}
+
+.home-legend li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--garis);
+    color: var(--teks-abu);
+    font-size: 14px;
+}
+
+.home-legend b {
+    margin-left: auto;
+    color: var(--teks);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-lemak { background: #9fbf3b; }
+.dot-protein { background: var(--hijau); }
+.dot-karbo { background: #e9a948; }
+
+/* -- HOME: promo + countdown -- */
+.home-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin: 0 0 80px;
+    padding: 34px 40px;
+    background: var(--gelap-2);
+    border-radius: 20px;
+    color: var(--putih);
+}
+
+.home-promo h2 {
+    margin-bottom: 6px;
+    font-family: var(--font-judul);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.home-promo p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+}
+
+/* Tiga kotak jam - menit - detik berjajar (flexbox) */
+.home-clock {
+    display: flex;
+    gap: 10px;
+}
+
+.home-clock div {
+    width: 80px;
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(195, 220, 79, 0.35);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.home-clock span {
+    display: block;
+    color: var(--lime);
+    font-family: var(--font-judul);
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.home-clock small {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+}
+
+/* -- HOME: judul tiap bagian -- */
+.home-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.home-eyebrow-dark {
+    color: var(--hijau-muda);
+}
+
+.home-section h2 {
+    margin-bottom: 36px;
+    color: var(--teks);
+    font-family: var(--font-judul);
+    font-size: 34px;
+    font-weight: 800;
+}
+
+/* -- HOME: keunggulan & cara pesan (grid 3 kolom) -- */
+.home-features,
+.home-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+}
+
+.home-feature,
+.home-step {
+    padding: 30px 26px;
+    background: var(--putih);
+    border: 1px solid var(--garis);
+    border-radius: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-feature:hover,
+.home-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(14, 22, 17, 0.08);
+}
+
+.home-feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: var(--gelap);
+    font-size: 22px;
+}
+
+.home-feature h3,
+.home-step h3 {
+    margin-bottom: 8px;
+    color: var(--teks);
+    font-size: 18px;
+}
+
+.home-feature p,
+.home-step p {
+    color: var(--teks-abu);
+    font-size: 14px;
+}
+
+/* Nomor 1, 2, 3 dari <ol> ditampilkan sebagai lingkaran */
+.home-steps {
+    list-style: none;
+    counter-reset: langkah;
+}
+
+.home-step {
+    counter-increment: langkah;
+}
+
+.home-step::before {
+    content: counter(langkah);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: var(--lime);
+    color: var(--gelap);
+    font-family: var(--font-judul);
+    font-weight: 800;
+}
+
+/* -- HOME: ajakan (CTA) dengan ilustrasi kopi -- */
+.home-cta {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 80px;
+    padding: 50px 60px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 85% 50%, rgba(195, 220, 79, 0.25), transparent 45%),
+        linear-gradient(120deg, #3e5a43, #557a5c);
+    color: var(--putih);
+    overflow: hidden;
+}
+
+.home-cta h2 {
+    margin-bottom: 8px;
+    font-family: var(--font-judul);
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.home-cta p {
+    margin-bottom: 28px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.home-cta-frame {
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 1 / 1;
+    margin-left: auto;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+
+
+
+/* =========================================================
+   2. DASAR SEMUA HALAMAN
+   ========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 body {
     font-family: var(--font-isi);
@@ -41,7 +666,6 @@ main {
     padding: 0 7%;
     background: var(--hijau);
 }
-
 
 .logo {
     color: var(--putih);
@@ -98,7 +722,6 @@ main {
     text-align: center;
     color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
-    transition: 0.2s;
 }
 
 .footer .logo {
@@ -156,6 +779,7 @@ main {
     background: var(--hijau-tua);
 }
 
+/* Notifikasi kecil di bawah layar (diatur cart.js) */
 #toast {
     display: none;
     position: fixed;
@@ -170,6 +794,10 @@ main {
     font-size: 14px;
 }
 
+
+/* =========================================================
+   3. HALAMAN MENU - Ressy
+   ========================================================= */
 
 /* -- Pencarian dan filter -- */
 .menu-tools {
@@ -198,7 +826,6 @@ main {
     font-size: 18px;
 }
 
-
 #search {
     width: 100%;
     padding: 12px 0;
@@ -214,7 +841,6 @@ main {
     gap: 8px;
 }
 
-
 .filter-btn {
     padding: 8px 18px;
     border: 1px solid var(--hijau);
@@ -223,17 +849,9 @@ main {
     color: var(--hijau);
     font-size: 14px;
     cursor: pointer;
-    font-size: 13px;
-    transition: all 0.2s;
 }
 
-
-.filter-btn:hover {
-    border-color: #91a88f;
-    color: #3e5a43;
-}
-
-
+.filter-btn:hover,
 .filter-btn.active {
     background: var(--hijau);
     color: var(--putih);
@@ -246,10 +864,6 @@ main {
     gap: 20px;
 }
 
-
-
-
-/* MENU CARD */
 .menu-card {
     display: flex;
     flex-direction: column;
@@ -283,7 +897,6 @@ main {
     color: var(--hijau);
     font-weight: 700;
 }
-
 
 .menu-description {
     margin-bottom: 10px;
@@ -339,6 +952,10 @@ main {
     color: var(--teks);
 }
 
+
+/* =========================================================
+   4. KERANJANG - Agatha  &  NUTRISI - Dini
+   ========================================================= */
 
 .cart-card {
     margin-bottom: 20px;
@@ -490,7 +1107,8 @@ main {
     border-radius: 999px;
 }
 
-/* Warna: hijau = rendah, kuning = sedang, merah = tinggi */
+/* Warna: hijau = rendah, kuning = sedang, merah = tinggi
+   (dipakai di bar keranjang dan label kalori di kartu menu) */
 .nutri-bar-isi.nutri-rendah { background: #6aa84f; }
 .nutri-bar-isi.nutri-sedang { background: #e9a948; }
 .nutri-bar-isi.nutri-tinggi { background: #d9534f; }
@@ -591,6 +1209,12 @@ main {
 }
 
 
+
+/* =========================================================
+   5. RESPONSIF - Astrid
+   Taruh bagian ini di PALING BAWAH style.css,
+   supaya aturannya menimpa aturan di atasnya saat layar kecil.
+   ========================================================= */
 
 /* Tablet (lebar layar 900px ke bawah) */
 @media (max-width: 900px) {
