@@ -1,9 +1,12 @@
 let kategoriAktif = "Semua";
 
 const menuList = document.getElementById("menu-list");
+const menuEmpty = document.getElementById("menu-empty");
 const searchInput = document.getElementById("search");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
+
+// Membuat HTML satu kartu menu 
 function buatKartuMenu(food) {
     const label = labelKalori(food.nutrisi.kalori, food.kategori); // dari nutrition.js
     const bahan = cariBahan(food.id);                              // dari nutrition.js
@@ -40,10 +43,12 @@ function buatKartuMenu(food) {
     `;
 }
 
+
+// Menampilkan menu sesuai kata kunci pencarian dan kategori
 function tampilkanMenu() {
     const kataKunci = searchInput.value.toLowerCase().trim();
 
-    // filter: ambil menu yang cocok nama DAN kategorinya
+    // filter: ambil menu yang cocok nama dan kategorinya
     const menuTerfilter = foods.filter((food) => {
         const cocokNama = food.nama.toLowerCase().includes(kataKunci);
         const cocokKategori = kategoriAktif === "Semua" || food.kategori === kategoriAktif;
@@ -63,8 +68,11 @@ function tampilkanMenu() {
     menuList.innerHTML = menuTerfilter.map(buatKartuMenu).join("");
 }
 
+
+// Pencarian: jalan setiap kali pengguna mengetik
 searchInput.addEventListener("input", tampilkanMenu);
 
+// Filter kategori: tombol Semua / Makanan / Minuman
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
         kategoriAktif = button.dataset.kategori;
@@ -78,4 +86,5 @@ filterButtons.forEach((button) => {
     });
 });
 
+// Jalankan saat halaman dibuka
 tampilkanMenu();
