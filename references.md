@@ -6,9 +6,7 @@ Nilai gizi di Spice & Sip adalah **estimasi untuk keperluan simulasi**, bukan sa
 
 Nilai gizi tiap makanan dihitung dari komposisi bahan penyusunnya per porsi.
 
-- Tabel Komposisi Pangan Indonesia (TKPI), Kementerian Kesehatan RI.
-  https://repository.kemkes.go.id/book/668
-- <!-- TODO tim: tambahkan sumber lain kalau ada bahan yang diambil dari luar TKPI (misalnya USDA FoodData Central: https://fdc.nal.usda.gov/) -->
+https://data.mendeley.com/datasets/8b4ztns76h/2
 
 ## Minuman (menu id 11–20)
 
