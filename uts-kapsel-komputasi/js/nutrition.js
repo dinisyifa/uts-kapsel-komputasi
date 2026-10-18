@@ -1,4 +1,3 @@
-
 const BATAS_HARIAN = {
   kalori: 2150,      // kkal
   protein: 60,       // g
@@ -80,6 +79,20 @@ function persenHarian(total) {
   return persen;
 }
 
+// > 100% = tinggi, 50–100% = sedang, < 50% = rendah
+function kelasPersen(p) {
+  if (p > 100) return "nutri-tinggi";
+  if (p >= 50) return "nutri-sedang";
+  return "nutri-rendah";
+}
+
+// warna sama dengan CSS .nutri-bar-isi
+const WARNA_KELAS = {
+  "nutri-rendah": "#6aa84f",
+  "nutri-sedang": "#e9a948",
+  "nutri-tinggi": "#d9534f"
+};
+
 let nutriChart = null;
 
 function renderNutrisiCart(cart) {
@@ -96,7 +109,7 @@ function renderNutrisiCart(cart) {
   ZAT_GIZI.forEach((zat) => {
     htmlKotak.push(`<div class="nutri-item"><span>${total[zat]}${satuan[zat]}</span>${nama[zat]}</div>`);
 
-    const kelas = persen[zat] > 100 ? "nutri-tinggi" : persen[zat] >= 50 ? "nutri-sedang" : "nutri-rendah";
+    const kelas = kelasPersen(persen[zat]);
     htmlBar.push(`
       <div class="nutri-bar-baris">
         <span class="nutri-bar-label">${nama[zat]} ${persen[zat]}%</span>
@@ -104,11 +117,14 @@ function renderNutrisiCart(cart) {
       </div>`);
   });
 
+  // Bar progres HTML hanya dipakai sebagai cadangan jika Chart.js gagal dimuat (offline)
+  const pakaiChart = typeof Chart !== "undefined";
+
   box.innerHTML = `
     <h3>Ringkasan Gizi Pesanan</h3>
     <div class="nutri-grid">${htmlKotak.join("")}</div>
     <h4>Persen dari kebutuhan harian</h4>
-    ${htmlBar.join("")}
+    ${pakaiChart ? "" : htmlBar.join("")}
   `;
 
   renderChart(persen);
@@ -122,20 +138,37 @@ function renderChart(persen) {
     return;
   }
   if (nutriChart) nutriChart.destroy();
+
+  const nama = { kalori: "Kalori", protein: "Protein", lemak: "Lemak", karbohidrat: "Karbohidrat" };
+  const label = ZAT_GIZI.map((zat) => `${nama[zat]} ${persen[zat]}%`);
+  const data = ZAT_GIZI.map((zat) => persen[zat]);
+  const warna = ZAT_GIZI.map((zat) => WARNA_KELAS[kelasPersen(persen[zat])]);
+
   nutriChart = new Chart(canvas, {
     type: "bar",
     data: {
-      labels: ["Kalori", "Protein", "Lemak", "Karbohidrat"],
+      labels: label,
       datasets: [{
         label: "% kebutuhan harian",
-        data: [persen.kalori, persen.protein, persen.lemak, persen.karbohidrat],
-        backgroundColor: "#2f9e44"
+        data: data,
+        backgroundColor: warna
       }]
     },
     options: {
       indexAxis: "y",
       plugins: { legend: { display: false } },
-      scales: { x: { beginAtZero: true, title: { display: true, text: "% kebutuhan harian" } } }
+      scales: {
+        x: {
+          beginAtZero: true,
+          suggestedMax: 100,
+          title: { display: true, text: "% kebutuhan harian (garis merah = 100%)" },
+          grid: {
+            // garis batas 100% dibuat merah & tebal
+            color: (ctx) => (ctx.tick && ctx.tick.value === 100 ? "#d9534f" : "#e5e5e5"),
+            lineWidth: (ctx) => (ctx.tick && ctx.tick.value === 100 ? 2 : 1)
+          }
+        }
+      }
     }
   });
 }
